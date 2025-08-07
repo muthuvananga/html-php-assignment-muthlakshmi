@@ -83,3 +83,52 @@ Total Cost: ₹498.58
 
 
 === Code Execution Successful ===
+
+6.Methods to Pass Information Between Pages in PHP
+GET Method
+
+Data is sent appended to the URL as query parameters.
+
+It is visible to the user and can be bookmarked or shared.
+
+Suitable for non-sensitive data and limited data size.
+
+Accessed using the $_GET superglobal array.
+
+POST Method
+
+Data is sent through the HTTP request body, not visible in the URL.
+
+Suitable for sensitive or large amounts of data.
+
+Commonly used with HTML forms.
+
+Accessed using the $_POST superglobal array.
+
+SESSION Method
+
+Data is stored on the server and linked to a user via a unique session ID stored in a cookie.
+
+Allows persistent data across multiple pages and requests.
+
+Ideal for user authentication and maintaining user state.
+
+Accessed using the $_SESSION superglobal array after starting the session with session_start().
+
+Cookies
+
+Data is stored on the client’s browser and sent with every request to the server.
+
+Can persist between browser sessions based on expiration time.
+
+Useful for storing small pieces of data like preferences.
+
+Accessed via the $_COOKIE superglobal array.
+
+Hidden Form Fields
+
+Data is embedded inside forms in hidden input fields.
+
+Sent with POST or GET requests but not visible to the user.
+
+Useful for passing data without exposing it in URLs.
