@@ -38,3 +38,15 @@ output:
 
 
 === Code Execution Successful ===
+4 <?php
+$animal = "antelope";
+$animal_heads = 1;
+$animal_legs = 4;
+
+echo "The $animal has $animal_heads head(s).";
+echo "The $animal has $animal_legs leg(s).";
+?>
+output:
+The antelope has 1 head(s).The antelope has 4 leg(s).
+
+=== Code Execution Successful ===
