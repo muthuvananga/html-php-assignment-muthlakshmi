@@ -50,3 +50,36 @@ output:
 The antelope has 1 head(s).The antelope has 4 leg(s).
 
 === Code Execution Successful ===
+
+5.<?php
+// You can manually set these values here:
+$price1 = 100.50;  // Price of item 1
+$qty1 = 2;         // Quantity of item 1
+
+$price2 = 50.75;   // Price of item 2
+$qty2 = 3;         // Quantity of item 2
+
+$price3 = 20.00;   // Price of item 3
+$qty3 = 5;         // Quantity of item 3
+
+// Calculate subtotal
+$subtotal = ($price1 * $qty1) + ($price2 * $qty2) + ($price3 * $qty3);
+
+// Calculate tax (10%)
+$tax = $subtotal * 0.10;
+
+// Calculate total cost
+$total = $subtotal + $tax;
+
+// Display results
+echo "Subtotal: ₹" . number_format($subtotal, 2) . "\n";
+echo "Tax (10%): ₹" . number_format($tax, 2) . "\n";
+echo "Total Cost: ₹" . number_format($total, 2) . "\n";
+?>
+output:
+Subtotal: ₹453.25
+Tax (10%): ₹45.33
+Total Cost: ₹498.58
+
+
+=== Code Execution Successful ===
