@@ -256,3 +256,27 @@ output:
         Today is: Friday
 
 === Code Execution Successful ===
+
+12.
+<?php
+// Get student marks (you can change the value or use a form/input later)
+$marks = 68; // Example marks, you can modify this
+
+echo "Student Marks: $marks<br>";
+
+if ($marks >= 75) {
+    echo "Grade: First Class";
+} elseif ($marks >= 60 && $marks <= 74) {
+    echo "Grade: Second Class";
+} elseif ($marks >= 40 && $marks <= 59) {
+    echo "Grade: Third Class";
+} elseif ($marks < 40) {
+    echo "Grade: Fail";
+} else {
+    echo "Invalid Marks Entered";
+}
+?>
+output:
+        Student Marks: 68<br>Grade: Second Class
+
+=== Code Execution Successful ===
