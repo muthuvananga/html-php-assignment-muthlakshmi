@@ -453,3 +453,19 @@ output:
 
 
 === Code Execution Successful ===
+
+22.
+<?php
+// Sample input
+$text = "PHP is easy to learn. PHP is powerful. PHP is everywhere.";
+$word = "PHP";
+
+// Count occurrences (case-sensitive)
+$count = substr_count($text, $word);
+
+echo "The word '$word' appears $count times in the string.";
+?>
+output:
+The word 'PHP' appears 3 times in the string.
+
+=== Code Execution Successful ===
