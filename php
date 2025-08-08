@@ -132,3 +132,36 @@ Data is embedded inside forms in hidden input fields.
 Sent with POST or GET requests but not visible to the user.
 
 Useful for passing data without exposing it in URLs.
+
+8.
+def deal():
+    # Prices and sizes
+    price_a = 25
+    size_a = 11
+
+    price_b = 23
+    size_b = 9
+
+    # Calculate cost per unit
+    unit_price_a = price_a / size_a
+    unit_price_b = price_b / size_b
+
+    print(f"Drink A: Rs.{price_a} for {size_a} units (Rs.{unit_price_a:.2f} per unit)")
+    print(f"Drink B: Rs.{price_b} for {size_b} units (Rs.{unit_price_b:.2f} per unit)")
+
+    # Compare and print better deal
+    if unit_price_a < unit_price_b:
+        print("Drink A is the better deal.")
+    elif unit_price_b < unit_price_a:
+        print("Drink B is the better deal.")
+    else:
+        print("Both drinks offer the same value.")
+
+# Call the function
+deal()
+
+output:Drink A: Rs.25 for 11 units (Rs.2.27 per unit)
+Drink B: Rs.23 for 9 units (Rs.2.56 per unit)
+Drink A is the better deal.
+
+=== Code Execution Successful ===
