@@ -429,3 +429,27 @@ The lowest value is: 5
 
 
 === Code Execution Successful ===
+
+21.
+        <?php
+function isLeapYear($year) {
+    // Check leap year conditions
+    if (($year % 4 == 0 && $year % 100 != 0) || ($year % 400 == 0)) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+// Example: Call the function and display the raw result
+$year = 2024;
+$result = isLeapYear($year);
+
+echo "Is $year a leap year? ";
+var_dump($result);  // Will output: bool(true) or bool(false)
+?>
+output:
+        Is 2024 a leap year? bool(true)
+
+
+=== Code Execution Successful ===
