@@ -179,3 +179,41 @@ output:
         this,,that+2.2
 
 === Code Execution Successful ===
+
+10.
+        <?php
+// Number of students
+$num_students = 3;
+
+// Sample input marks (you can change these)
+$marks_array = array(92, 75, 43); // Example: Student 1 = 92, Student 2 = 75, Student 3 = 43
+
+for ($i = 0; $i < $num_students; $i++) {
+    $marks = $marks_array[$i];
+
+    if ($marks >= 90 && $marks <= 100) {
+        $grade = "A+";
+    } elseif ($marks >= 80) {
+        $grade = "A";
+    } elseif ($marks >= 70) {
+        $grade = "B";
+    } elseif ($marks >= 60) {
+        $grade = "C";
+    } elseif ($marks >= 50) {
+        $grade = "D";
+    } elseif ($marks >= 0) {
+        $grade = "Fail";
+    } else {
+        $grade = "Invalid Marks";
+    }
+
+    echo "Student " . ($i + 1) . ": Marks = $marks, Grade = $grade\n";
+}
+?>
+output:
+        Student 1: Marks = 92, Grade = A+
+Student 2: Marks = 75, Grade = B
+Student 3: Marks = 43, Grade = Fail
+
+
+=== Code Execution Successful ===
