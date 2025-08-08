@@ -317,3 +317,24 @@ output:
         The sum of digits of 12345 is: 15
 
 === Code Execution Successful ===
+
+16.
+<?php
+// Simulated input values (you can change them)
+$num1 = 15;
+$num2 = 25;
+
+// Function to return the sum
+function addNumbers($a, $b) {
+    return $a + $b;
+}
+
+// Call the function and display the result
+$sum = addNumbers($num1, $num2);
+echo "The sum of $num1 and $num2 is: $sum";
+?>
+
+output:
+ The sum of 15 and 25 is: 40
+
+=== Code Execution Successful ===
