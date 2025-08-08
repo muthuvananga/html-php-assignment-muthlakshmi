@@ -403,3 +403,29 @@ output:
         The variable 'name' is set.
 
 === Code Execution Successful ===
+19.
+<?php
+function findHighLow($numbers) {
+    $highest = max($numbers);
+    $lowest = min($numbers);
+    
+    return array("highest" => $highest, "lowest" => $lowest);
+}
+
+// Example array
+$numArray = array(23, 45, 12, 67, 34, 89, 5);
+
+// Call the function
+$result = findHighLow($numArray);
+
+// Display the result (use PHP_EOL instead of <br> for compatibility)
+echo "The highest value is: " . $result['highest'] . PHP_EOL;
+echo "The lowest value is: " . $result['lowest'] . PHP_EOL;
+?>
+
+output:
+The highest value is: 89
+The lowest value is: 5
+
+
+=== Code Execution Successful ===
