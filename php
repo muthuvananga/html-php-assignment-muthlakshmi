@@ -217,3 +217,42 @@ Student 3: Marks = 43, Grade = Fail
 
 
 === Code Execution Successful ===
+
+11.
+    <?php
+// Get current day number (0 for Sunday, 6 for Saturday)
+$dayNumber = date("w");
+
+echo "Today is: ";
+
+switch ($dayNumber) {
+    case 0:
+        echo "Sunday";
+        break;
+    case 1:
+        echo "Monday";
+        break;
+    case 2:
+        echo "Tuesday";
+        break;
+    case 3:
+        echo "Wednesday";
+        break;
+    case 4:
+        echo "Thursday";
+        break;
+    case 5:
+        echo "Friday";
+        break;
+    case 6:
+        echo "Saturday";
+        break;
+    default:
+        echo "Invalid day";
+}
+?>
+
+output:
+        Today is: Friday
+
+=== Code Execution Successful ===
