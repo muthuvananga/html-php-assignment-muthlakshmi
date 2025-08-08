@@ -528,6 +528,22 @@ Length: 9
 Uppercase: HELLO PHP
 Lowercase: hello php
 Reversed: PHP olleH
+=== Code Execution Successful ===
+
+26.
+    <?php
+$text = "The Thing will come to you soon";
+
+// Replace first occurrence of 'the' (case-insensitive)
+$updated = preg_replace('/\bthe\b/i', 'best', $text, 1);
+
+echo "Original: $text\n";
+echo "Updated: $updated\n";
+?>
+output:
+    Original: The Thing will come to you soon
+Updated: best Thing will come to you soon
 
 
 === Code Execution Successful ===
+    
