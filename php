@@ -165,3 +165,17 @@ Drink B: Rs.23 for 9 units (Rs.2.56 per unit)
 Drink A is the better deal.
 
 === Code Execution Successful ===
+
+9.<?php
+$drink_this = "this";
+$that = "that";
+$the_other = 2.2;
+$not_set = "";  // This prevents the warning
+
+print("$drink_this,$not_set,$that+$the_other");
+?>
+
+output:
+        this,,that+2.2
+
+=== Code Execution Successful ===
