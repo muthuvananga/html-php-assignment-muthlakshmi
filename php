@@ -387,3 +387,19 @@ Transaction History:
 
 
 === Code Execution Successful ===
+
+18.
+        <?php
+$name = "John";
+
+if (isset($name)) {
+    echo "The variable 'name' is set.";
+} else {
+    echo "The variable 'name' is not set.";
+}
+?>
+
+output:
+        The variable 'name' is set.
+
+=== Code Execution Successful ===
