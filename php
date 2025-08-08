@@ -338,3 +338,52 @@ output:
  The sum of 15 and 25 is: 40
 
 === Code Execution Successful ===
+
+17.
+        <?php
+$balance = 1000; // Initial balance
+
+echo "Initial Balance: ₹$balance\n";
+
+// Simulate a deposit
+$deposit = 500;
+if ($deposit > 0) {
+    $balance += $deposit;
+    echo "Deposited ₹$deposit successfully.\n";
+} else {
+    echo "Invalid deposit amount.\n";
+}
+
+// Simulate a withdrawal
+$withdraw = 700;
+if ($withdraw > 0 && $withdraw <= $balance) {
+    $balance -= $withdraw;
+    echo "Withdrew ₹$withdraw successfully.\n";
+} else {
+    echo "Withdrawal failed. Insufficient balance or invalid amount.\n";
+}
+
+// Display final balance
+echo "Final Balance: ₹$balance\n";
+
+// Show transaction history (loop)
+$transactions = ["Deposit ₹$deposit", "Withdraw ₹$withdraw"];
+
+echo "\nTransaction History:\n";
+foreach ($transactions as $txn) {
+    echo "- $txn\n";
+}
+?>
+
+output:
+Initial Balance: ₹1000
+Deposited ₹500 successfully.
+Withdrew ₹700 successfully.
+Final Balance: ₹800
+
+Transaction History:
+- Deposit ₹500
+- Withdraw ₹700
+
+
+=== Code Execution Successful ===
