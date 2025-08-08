@@ -297,3 +297,23 @@ PHP's automatic type conversion from number to string,
 How substring extraction works based on index positions,
 
 And how the output reflects the extracted portion of the string.
+
+15.
+        <?php
+$number = 12345; // You can change this number
+$sum = 0;
+$temp = $number;
+
+while ($temp > 0) {
+    $digit = $temp % 10;    // Get the last digit
+    $sum += $digit;         // Add it to the sum
+    $temp = (int)($temp / 10); // Remove the last digit
+}
+
+echo "The sum of digits of $number is: $sum";
+?>
+
+output:
+        The sum of digits of 12345 is: 15
+
+=== Code Execution Successful ===
