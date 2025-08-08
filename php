@@ -597,3 +597,29 @@ Multiplication: 30
 Division: 3.3333333333333
 Modulus: 1
 Exponentiation: 1000
+    
+28.
+    <?php
+$a = 10;
+$b = "10";
+$c = 20;
+
+var_dump($a == $b);   // true - values are equal (type not checked)
+var_dump($a === $b);  // false - value same, but type different
+
+var_dump($a == $c);   // false - values not equal
+var_dump($a === $c);  // false - values and types both different
+
+var_dump($b == $c);   // false
+?>
+output:
+
+bool(true)
+bool(false)
+bool(false)
+bool(false)
+bool(false)
+
+ 
+
+=== Code Execution Successful ===
