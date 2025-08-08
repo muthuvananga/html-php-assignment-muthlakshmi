@@ -671,4 +671,21 @@ Copy
 Edit
 echo ceil(4.3); // Output: 5
 
+30.
+    <?php
+function generatePassword($length = 12) {
+    $chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()-_=+';
+    $password = '';
+    for ($i = 0; $i < $length; $i++) {
+        $password .= $chars[rand(0, strlen($chars) - 1)];
+    }
+    return $password;
+}
+
+echo "Generated Password: " . generatePassword();
+?>
+output:
+    Generated Password: HZPfgq8%INZ1
+
+=== Code Execution Successful ===
     
