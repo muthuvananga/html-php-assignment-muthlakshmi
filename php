@@ -299,7 +299,7 @@ How substring extraction works based on index positions,
 And how the output reflects the extracted portion of the string.
 
 15.
-        <?php
+     <?php
 $number = 12345; // You can change this number
 $sum = 0;
 $temp = $number;
