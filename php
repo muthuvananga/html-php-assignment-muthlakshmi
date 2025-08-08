@@ -511,3 +511,23 @@ Used in login forms, contact forms, registration systems, and bank transactions.
  Conclusion:
 Use GET when the data is simple, not confidential, and needs to be shared/bookmarked.
 Use POST when sending sensitive, secure, or large amounts of data.
+
+24.
+<?php
+$text = "Hello PHP";
+
+echo "Original Text: $text\n";
+echo "Length: " . strlen($text) . "\n";
+echo "Uppercase: " . strtoupper($text) . "\n";
+echo "Lowercase: " . strtolower($text) . "\n";
+echo "Reversed: " . strrev($text) . "\n";
+?>
+output:
+Original Text: Hello PHP
+Length: 9
+Uppercase: HELLO PHP
+Lowercase: hello php
+Reversed: PHP olleH
+
+
+=== Code Execution Successful ===
