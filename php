@@ -469,3 +469,45 @@ output:
 The word 'PHP' appears 3 times in the string.
 
 === Code Execution Successful ===
+
+23.
+Theory: Prioritize the Use of GET and POST in PHP with Real-Time Example
+In PHP, the GET and POST methods are used to send data from the client (browser) to the server, especially when submitting forms. Choosing between them depends on the type of data being sent and the use case.
+
+ GET Method:
+Sends data through the URL.
+
+Data is visible and can be bookmarked.
+
+Suitable for non-sensitive data.
+
+Limited in the amount of data it can send.
+
+Real-Time Example:
+
+php
+Copy
+Edit
+search.php?query=laptops
+Used in search engines, product filters, and pagination (e.g., e-commerce filters).
+
+ POST Method:
+Sends data in the request body, not visible in the URL.
+
+More secure for sending sensitive information.
+
+Can handle large amounts of data.
+
+Cannot be bookmarked.
+
+ Real-Time Example:
+
+php
+Copy
+Edit
+<form method="POST" action="submit_form.php">
+Used in login forms, contact forms, registration systems, and bank transactions.
+
+ Conclusion:
+Use GET when the data is simple, not confidential, and needs to be shared/bookmarked.
+Use POST when sending sensitive, secure, or large amounts of data.
