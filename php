@@ -577,4 +577,23 @@ B W B W B W B W
 W B W B W B W B 
 B W B W B W B W 
 
-    
+27.  
+    <?php
+$a = 10;
+$b = 3;
+
+echo "Addition: " . ($a + $b) . "\n";         // 13
+echo "Subtraction: " . ($a - $b) . "\n";      // 7
+echo "Multiplication: " . ($a * $b) . "\n";   // 30
+echo "Division: " . ($a / $b) . "\n";         // 3.333...
+echo "Modulus: " . ($a % $b) . "\n";          // 1
+echo "Exponentiation: " . ($a ** $b) . "\n";  // 1000
+?>
+Output:
+
+Addition: 13
+Subtraction: 7
+Multiplication: 30
+Division: 3.3333333333333
+Modulus: 1
+Exponentiation: 1000
