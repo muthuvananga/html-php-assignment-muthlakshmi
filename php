@@ -280,3 +280,20 @@ output:
         Student Marks: 68<br>Grade: Second Class
 
 === Code Execution Successful ===
+
+13.
+        The given snippet demonstrates the use of the substr() function in PHP, which is used to extract a specific part of a string.
+
+Although the input appears to be a number, PHP automatically converts it into a string when used with string functions. In this case, the number 12345 is treated as the string "12345".
+
+The function extracts characters starting from a specific position (index 2, which is the third character) and takes the next two characters. As a result, the substring extracted is "34".
+
+The final output will display the extracted substring along with a message.
+
+This example illustrates:
+
+PHP's automatic type conversion from number to string,
+
+How substring extraction works based on index positions,
+
+And how the output reflects the extracted portion of the string.
