@@ -546,4 +546,35 @@ Updated: best Thing will come to you soon
 
 
 === Code Execution Successful ===
+
+26.
+    <?php
+// Chessboard using for loop with characters
+$rows = 8;
+$cols = 8;
+
+for ($i = 0; $i < $rows; $i++) {
+    for ($j = 0; $j < $cols; $j++) {
+        // Alternate between black (B) and white (W)
+        if (($i + $j) % 2 == 0) {
+            echo "W ";
+        } else {
+            echo "B ";
+        }
+    }
+    echo "\n"; // Newline for each row
+}
+?>
+
+    Output:
+
+W B W B W B W B 
+B W B W B W B W 
+W B W B W B W B 
+B W B W B W B W 
+W B W B W B W B 
+B W B W B W B W 
+W B W B W B W B 
+B W B W B W B W 
+
     
