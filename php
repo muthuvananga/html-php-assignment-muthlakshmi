@@ -623,3 +623,52 @@ bool(false)
  
 
 === Code Execution Successful ===
+   
+29.
+    (i) rand()
+Usage: Generates a random integer between two given numbers.
+
+Example:
+
+php
+Copy
+Edit
+echo rand(1, 100); // Output: any random number between 1 and 100
+(ii) abs()
+Usage: Returns the absolute (positive) value of a number.
+
+Example:
+
+php
+Copy
+Edit
+echo abs(-15); // Output: 15
+(iii) str_replace()
+Usage: Replaces all occurrences of a search string with a replacement string.
+
+Example:
+
+php
+Copy
+Edit
+echo str_replace("PHP", "Web", "PHP is fun"); // Output: Web is fun
+(iv) pi()
+Usage: Returns the value of π (pi).
+
+Example:
+
+php
+Copy
+Edit
+echo pi(); // Output: 3.1415926535898
+(v) ceil()
+Usage: Rounds a number up to the nearest integer.
+
+Example:
+
+php
+Copy
+Edit
+echo ceil(4.3); // Output: 5
+
+    
