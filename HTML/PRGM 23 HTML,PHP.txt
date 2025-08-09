@@ -1,0 +1,75 @@
+ Use GET when:
+You want to retrieve data (read-only).
+
+Parameters should be visible in the URL (e.g., search filters, page numbers).
+
+You want the link to be bookmarkable or shareable.
+
+✅ Real-Time Example (Search Form):
+
+
+<form method="get" action="search.php">
+    Search: <input type="text" name="query">
+    <input type="submit" value="Search">
+</form>
+
+
+
+// search.php
+if (isset($_GET['query'])) {
+    echo "You searched for: " . htmlspecialchars($_GET['query']);
+}
+
+
+
+🔹 Use GET when:
+You want to retrieve data (read-only).
+
+Parameters should be visible in the URL (e.g., search filters, page numbers).
+
+You want the link to be bookmarkable or shareable.
+
+✅ Real-Time Example (Search Form):
+
+<form method="get" action="search.php">
+    Search: <input type="text" name="query">
+    <input type="submit" value="Search">
+</form>
+
+// search.php
+if (isset($_GET['query'])) {
+    echo "You searched for: " . htmlspecialchars($_GET['query']);
+}
+
+🔹 Use POST when:
+You want to submit data securely (e.g., login, registration, payment).
+
+Data should not appear in the URL.
+
+You're modifying server state (e.g., saving a form).
+
+✅ Real-Time Example (Login Form):
+
+<form method="post" action="login.php">
+    Username: <input type="text" name="username"><br>
+    Password: <input type="password" name="password"><br>
+    <input type="submit" value="Login">
+</form>
+
+
+// login.php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $user = $_POST['username'];
+    $pass = $_POST['password'];
+    echo "Logged in as: " . htmlspecialchars($user);
+}
+
+
+✅ Summary Table:
+Feature	            GET	                           POST
+Data in URL	✅ Yes                  	❌ No
+Max Length	~2000 characters	        Large (server limit)
+Security	❌ Less secure	                ✅ More secure
+Use Case	Search, filters, links	         Forms, login, payments
+Bookmarkable	✅ Yes	                         ❌ No
+
