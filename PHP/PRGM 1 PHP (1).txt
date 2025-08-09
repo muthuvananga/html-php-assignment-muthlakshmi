@@ -1,0 +1,14 @@
+1.
+<?php
+$capital = 67;
+print("Variable capital is $capital");
+print("Variable CaPiTaL is $CaPiTaL");
+?>
+
+OUTPUT:
+Variable capital is 67
+Warning: Undefined variable $CaPiTaL in /tmp/5FhWJz9M6v/main.php on line 4
+Variable CaPiTaL is 
+
+=== Code Execution Successful ===
+

@@ -1,0 +1,17 @@
+2.
+<?php
+echo "    1    2    3<br>";
+
+for ($i = 1; $i <= 3; $i++) {
+    echo "$i ";
+    for ($j = 1; $j <= 3; $j++) {
+        $result = $i / $j;
+        echo number_format($result, 2) . " ";
+    }
+    echo "<br>";
+}
+?>
+OUTPUT:
+1    2    3<br>1 1.00 0.50 0.33 <br>2 2.00 1.00 0.67 <br>3 3.00 1.50 1.00 <br>
+
+=== Code Execution Successful ===

@@ -1,0 +1,19 @@
+<?php
+function deal($costA, $sizeA, $costB, $sizeB) {
+    $pricePerUnitA = $costA / $sizeA;
+    $pricePerUnitB = $costB / $sizeB;
+
+    if ($pricePerUnitA < $pricePerUnitB) {
+        return "Choose Drink A to save money.";
+    } elseif ($pricePerUnitB < $pricePerUnitA) {
+        return "Choose Drink B to save money.";
+    } else {
+        return "Both drinks cost the same per unit.";
+    }
+}
+
+echo deal(25, 11, 23, 9);
+?>
+
+OUTPUT:
+Choose Drink A to save money.

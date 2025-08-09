@@ -1,0 +1,52 @@
+USING GET METHOD:
+1.
+<form action="page2.php" method="get">
+    Name: <input type="text" name="username">
+    <input type="submit" value="Submit">
+</form>
+2.
+<?php
+$name = $_GET['username'];
+echo "Welcome, $name!";
+?>
+
+
+USING POST METHOD:
+
+1.
+
+<form action="page2.php" method="post">
+    Email: <input type="email" name="email">
+    <input type="submit" value="Submit">
+</form>
+
+2.
+<?php
+$email = $_POST['email'];
+echo "Email received: $email";
+?>
+
+USING SESSIONS:
+
+1.
+<?php
+session_start();
+$_SESSION['user'] = "Alice";
+header("Location: next.php");
+?>
+
+2.
+<?php
+session_start();
+echo "Welcome, " . $_SESSION['user'];
+?>
+
+USING COOKIES:
+1.
+<?php
+setcookie("user", "Bob", time() + 3600);
+?>
+2.
+<?php
+echo "Hello, " . $_COOKIE['user'];
+?>

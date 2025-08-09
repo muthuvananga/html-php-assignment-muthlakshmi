@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Purchase Total Calculator</title>
+</head>
+<body>
+    <h2>Enter Item Details</h2>
+    <form method="post">
+        <h4>Item 1:</h4>
+        Price: <input type="number" step="0.01" name="price1" required>
+        Quantity: <input type="number" name="qty1" required><br><br>
+
+        <h4>Item 2:</h4>
+        Price: <input type="number" step="0.01" name="price2" required>
+        Quantity: <input type="number" name="qty2" required><br><br>
+
+        <h4>Item 3:</h4>
+        Price: <input type="number" step="0.01" name="price3" required>
+        Quantity: <input type="number" name="qty3" required><br><br>
+
+        <input type="submit" value="Calculate Total">
+    </form>
+
+    <?php
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $subtotal = ($_POST['price1'] * $_POST['qty1']) +
+                    ($_POST['price2'] * $_POST['qty2']) +
+                    ($_POST['price3'] * $_POST['qty3']);
+
+        $tax = $subtotal * 0.10;
+        $total = $subtotal + $tax;
+
+        echo "<h3>Receipt</h3>";
+        echo "Subtotal: ₹" . number_format($subtotal, 2) . "<br>";
+        echo "Tax (10%): ₹" . number_format($tax, 2) . "<br>";
+        echo "<strong>Total Cost: ₹" . number_format($total, 2) . "</strong>";
+    }
+    ?>
+</body>
+</html>

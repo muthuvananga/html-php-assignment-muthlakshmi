@@ -1,0 +1,30 @@
+<?php
+$students = [
+    "Alice" => 85,
+    "Bob" => 72,
+    "Charlie" => 58,
+    "Diana" => 39,
+    "Eve" => 90
+];
+
+foreach ($students as $name => $marks) {
+    if ($marks >= 75) {
+        $grade = "First Class";
+    } elseif ($marks >= 60) {
+        $grade = "Second Class";
+    } elseif ($marks >= 40) {
+        $grade = "Third Class";
+    } else {
+        $grade = "Fail";
+    }
+    echo "$name scored $marks marks and got $grade.<br>";
+}
+?>
+
+OUTPUT:
+
+Alice scored 85 marks and got First Class.
+Bob scored 72 marks and got Second Class.
+Charlie scored 58 marks and got Third Class.
+Diana scored 39 marks and got Fail.
+Eve scored 90 marks and got First Class.
