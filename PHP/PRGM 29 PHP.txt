@@ -1,0 +1,40 @@
+(i) rand()
+Usage: Generates a random integer.
+
+Example: rand(1, 100) returns a random number between 1 and 100 (inclusive).
+
+
+echo rand(1, 10); // Output: random number between 1 and 10
+
+
+(ii) abs()
+Usage: Returns the absolute (non-negative) value of a number.
+
+Example: abs(-5) returns 5.
+
+echo abs(-15); // Output: 15
+
+
+(iii) str_replace()
+Usage: Replaces all occurrences of a search string with a replacement string in another string.
+
+Example: Replace "apple" with "orange" in a sentence.
+
+echo str_replace("apple", "orange", "I like apple."); // Output: I like orange.
+
+
+(iv) pi()
+Usage: Returns the value of π (pi), approximately 3.14159.
+
+Example: Calculate the circumference of a circle.
+
+echo pi(); // Output: 3.1415926535898
+
+
+(v) ceil()
+Usage: Rounds a floating-point number up to the nearest integer.
+
+Example: ceil(4.2) returns 5.
+
+echo ceil(7.1); // Output: 8
+

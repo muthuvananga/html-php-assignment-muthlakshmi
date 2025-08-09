@@ -1,0 +1,75 @@
+<?php
+$text = "  Hello World! PHP is Powerful.  ";
+
+echo "<strong>Original String:</strong> '$text'<br><br>";
+
+// 1. Trim whitespace
+echo "Trimmed: '" . trim($text) . "'<br>";
+
+// 2. Convert to lowercase
+echo "Lowercase: " . strtolower($text) . "<br>";
+
+// 3. Convert to uppercase
+echo "Uppercase: " . strtoupper($text) . "<br>";
+
+// 4. Capitalize first letter
+echo "Ucfirst: " . ucfirst(strtolower(trim($text))) . "<br>";
+
+// 5. Capitalize first letter of each word
+echo "Ucwords: " . ucwords(strtolower($text)) . "<br>";
+
+// 6. String length
+echo "Length: " . strlen($text) . "<br>";
+
+// 7. Word count
+echo "Word Count: " . str_word_count($text) . "<br>";
+
+// 8. Reverse string
+echo "Reversed: " . strrev($text) . "<br>";
+
+// 9. Find position of a substring
+echo "Position of 'PHP': " . strpos($text, "PHP") . "<br>";
+
+// 10. Replace text
+echo "Replace 'PHP' with 'Java': " . str_replace("PHP", "Java", $text) . "<br>";
+
+// 11. Repeat string
+echo "Repeat '*': " . str_repeat("*", 10) . "<br>";
+
+// 12. Substring
+echo "Substring (7, 5): " . substr($text, 7, 5) . "<br>";
+
+// 13. Check if string contains 'Powerful'
+echo "Contains 'Powerful'? ";
+echo (str_contains($text, "Powerful") ? "Yes" : "No") . "<br>";
+
+// 14. Explode into array
+$words = explode(" ", trim($text));
+echo "Exploded Words: ";
+print_r($words);
+echo "<br>";
+
+// 15. Implode array to string
+echo "Imploded: " . implode("-", $words) . "<br>";
+?>
+
+
+
+OUTPUT:
+
+Original String: '  Hello World! PHP is Powerful.  '
+Trimmed: 'Hello World! PHP is Powerful.'
+Lowercase:   hello world! php is powerful.
+Uppercase:   HELLO WORLD! PHP IS POWERFUL.
+Ucfirst: Hello world! php is powerful.
+Ucwords:   Hello World! Php Is Powerful.
+Length: 35
+Word Count: 5
+Reversed:   .lufrewoP si PHP !dlroW olleH  
+Position of 'PHP': 15
+Replace 'PHP' with 'Java':   Hello World! Java is Powerful.
+Repeat '*': **********
+Substring (7, 5): World
+Contains 'Powerful'? Yes
+Exploded Words: Array ( [0] => Hello [1] => World! [2] => PHP [3] => is [4] => Powerful. )
+Imploded: Hello-World!-PHP-is-Powerful.

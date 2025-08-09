@@ -1,0 +1,34 @@
+isset() Function in PHP
+🔹 Purpose:
+isset() is used to check whether a variable is set and is not null.
+
+ Syntax:
+
+isset($variable);
+Returns true if the variable exists and is not null, otherwise returns false.
+
+ Example:
+
+
+<?php
+$name = "John";
+
+if (isset($name)) {
+    echo "Variable 'name' is set.<br>";
+} else {
+    echo "Variable 'name' is not set.<br>";
+}
+
+unset($name); // Remove the variable
+
+if (isset($name)) {
+    echo "Variable 'name' is still set.";
+} else {
+    echo "Variable 'name' is not set anymore.";
+}
+?>
+
+OUTPUT:
+
+Variable 'name' is set.
+Variable 'name' is not set anymore.

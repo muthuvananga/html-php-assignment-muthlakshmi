@@ -1,0 +1,15 @@
+<?php
+$text = "The Thing will come to you soon";
+
+// Convert first 'the' (case-insensitive) to 'best'
+$updatedText = preg_replace('/\bthe\b/i', 'best', $text, 1);
+
+echo "Original: $text<br>";
+echo "Updated: $updatedText";
+?>
+
+
+OUTPUT:
+
+Original: The Thing will come to you soon  
+Updated: best Thing will come to you soon

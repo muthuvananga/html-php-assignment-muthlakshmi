@@ -1,0 +1,36 @@
+<?php
+$dayNumber = date('N'); // 1 (Monday) to 7 (Sunday)
+
+switch ($dayNumber) {
+    case 1:
+        $day = "Monday";
+        break;
+    case 2:
+        $day = "Tuesday";
+        break;
+    case 3:
+        $day = "Wednesday";
+        break;
+    case 4:
+        $day = "Thursday";
+        break;
+    case 5:
+        $day = "Friday";
+        break;
+    case 6:
+        $day = "Saturday";
+        break;
+    case 7:
+        $day = "Sunday";
+        break;
+    default:
+        $day = "Invalid day";
+}
+
+echo "Today is: $day";
+?>
+
+
+OUTPUT:
+
+Today is: Wednesday

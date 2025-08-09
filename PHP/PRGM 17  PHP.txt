@@ -1,0 +1,70 @@
+✅ Control Structures in PHP:
+PHP supports common control structures such as:
+
+if, else, elseif – Conditional branching
+
+switch – Multiple condition matching
+
+while, do...while, for, foreach – Looping
+
+break, continue – Loop control
+
+function – Code modularity
+
+ Bank Transaction Example using Control Structures
+
+
+<?php
+$balance = 5000; // Initial balance
+
+function displayMenu() {
+    echo "<h3>Bank Menu</h3>";
+    echo "<form method='post'>
+            <input type='number' name='amount' placeholder='Enter amount' required><br><br>
+            <select name='action'>
+                <option value='deposit'>Deposit</option>
+                <option value='withdraw'>Withdraw</option>
+                <option value='check'>Check Balance</option>
+            </select><br><br>
+            <input type='submit' name='submit' value='Proceed'>
+          </form>";
+}
+
+session_start();
+if (!isset($_SESSION['balance'])) {
+    $_SESSION['balance'] = 5000;
+}
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $action = $_POST['action'];
+    $amount = (float) $_POST['amount'];
+    
+    switch ($action) {
+        case 'deposit':
+            $_SESSION['balance'] += $amount;
+            echo "Deposited: ₹$amount<br>";
+            break;
+
+        case 'withdraw':
+            if ($_SESSION['balance'] >= $amount) {
+                $_SESSION['balance'] -= $amount;
+                echo "Withdrawn: ₹$amount<br>";
+            } else {
+                echo "Insufficient funds!<br>";
+            }
+            break;
+
+        case 'check':
+            echo "Checked balance (no transaction performed).<br>";
+            break;
+
+        default:
+            echo "Invalid action selected.";
+    }
+
+    echo "Current Balance: ₹" . $_SESSION['balance'];
+}
+
+displayMenu();
+?>
+

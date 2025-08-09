@@ -1,0 +1,17 @@
+<?php
+$number = 12345; // Example number
+$sum = 0;
+
+while ($number > 0) {
+    $digit = $number % 10;   // Get last digit
+    $sum += $digit;          // Add to sum
+    $number = (int)($number / 10); // Remove last digit
+}
+
+echo "Sum of digits: $sum";
+?>
+
+
+OUTPUT:
+
+Sum of digits: 15

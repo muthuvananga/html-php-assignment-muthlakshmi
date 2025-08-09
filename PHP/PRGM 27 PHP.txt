@@ -1,0 +1,26 @@
+✅ Mathematical (Arithmetic) Operators in PHP with Examples
+PHP supports the following arithmetic operators for numeric operations:
+
+Operator	Name          	Example ($a = 10; $b = 3;)	Result
++	     Addition	           $a + $b                  	13
+-	   Subtraction	           $a - $b                 	7
+*	  Multiplication	   $a * $b	                30
+/	   Division	           $a / $b	                3.333
+%	    Modulus	           $a % $b	                 1
+**	   Exponentiation	   $a ** $b	                 1000
+
+
+
+✅ PHP Example:
+
+<?php
+$a = 10;
+$b = 3;
+
+echo "Addition: " . ($a + $b) . "<br>";          // 13
+echo "Subtraction: " . ($a - $b) . "<br>";       // 7
+echo "Multiplication: " . ($a * $b) . "<br>";    // 30
+echo "Division: " . ($a / $b) . "<br>";          // 3.333...
+echo "Modulus: " . ($a % $b) . "<br>";           // 1
+echo "Exponentiation: " . ($a ** $b) . "<br>";   // 1000
+?>
