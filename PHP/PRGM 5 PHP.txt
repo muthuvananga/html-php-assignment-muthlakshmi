@@ -32,6 +32,8 @@ echo "Subtotal: $" . number_format($subtotal, 2) . "\n";
 echo "Tax (10%): $" . number_format($tax, 2) . "\n";
 echo "Total Cost: $" . number_format($total, 2) . "\n";
 ?>
+ouput:
+
 Price of Item 1: $120
 Quantity of Item 1: 2
 
@@ -47,3 +49,4 @@ Total Cost: $748.00
 
 
 === Code Execution Successful ===
+
