@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Find Min and Max</title>
+</head>
+<body>
+
+<h2>Highest and Lowest Finder</h2>
+
+<?php
+function findMinMax($arr) {
+    if (empty($arr)) {
+        return ["min" => null, "max" => null];
+    }
+    $min = min($arr);
+    $max = max($arr);
+    return ["min" => $min, "max" => $max];
+}
+
+// Example array
+$numbers = [34, 12, 98, 5, 67, 21];
+
+$result = findMinMax($numbers);
+
+echo "Array: " . implode(", ", $numbers) . "<br>";
+echo "Lowest Value: " . $result["min"] . "<br>";
+echo "Highest Value: " . $result["max"];
+?>
+
+</body>
+</html>
+
+
+OUTPUT:
+
+Array: 34, 12, 98, 5, 67, 21  
+Lowest Value: 5  
+Highest Value: 98
