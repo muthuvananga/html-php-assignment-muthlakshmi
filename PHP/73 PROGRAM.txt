@@ -1,0 +1,27 @@
+73)
+<?php
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    if (isset($_FILES['image'])) {
+        $allowedTypes = ['image/jpeg', 'image/png'];
+        $fileType = $_FILES['image']['type'];
+
+        if (in_array($fileType, $allowedTypes)) {
+            echo "File upload successful: " . htmlspecialchars($_FILES['image']['name']);
+            // You can move the uploaded file to a directory here using move_uploaded_file()
+        } else {
+            echo "Error: Only JPG and PNG files are allowed!";
+        }
+    } else {
+        echo "No file uploaded.";
+    }
+}
+?>
+
+<!-- HTML form to upload a file -->
+<form method="post" enctype="multipart/form-data">
+    Select image to upload (JPG or PNG only):
+    <input type="file" name="image" required>
+    <input type="submit" value="Upload Image">
+</form>
+OUTPUT:
+Select image to upload (JPG or PNG only): No file chosen 

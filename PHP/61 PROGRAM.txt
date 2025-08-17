@@ -1,0 +1,85 @@
+61)
+<?php
+echo "=== Indexed Array Deletion ===\n";
+
+// Indexed array example
+$numbers = [10, 20, 30, 40, 50];
+
+echo "Original Indexed Array:\n";
+print_r($numbers);
+
+// Delete element at index 2 (value = 30)
+unset($numbers[2]);
+
+echo "After unset() (without reindexing):\n";
+print_r($numbers);
+
+// Reindexing the array
+$numbers = array_values($numbers);
+
+echo "After reindexing:\n";
+print_r($numbers);
+
+
+echo "\n=== Associative Array Deletion ===\n";
+
+// Associative array example
+$user = [
+    "name" => "Alice",
+    "email" => "alice@example.com",
+    "role" => "admin"
+];
+
+echo "Original Associative Array:\n";
+print_r($user);
+
+// Delete element with key 'email'
+unset($user["email"]);
+
+echo "After deleting 'email':\n";
+print_r($user);
+?>
+
+Output:
+
+=== Indexed Array Deletion ===
+Original Indexed Array:
+Array
+(
+    [0] => 10
+    [1] => 20
+    [2] => 30
+    [3] => 40
+    [4] => 50
+)
+After unset() (without reindexing):
+Array
+(
+    [0] => 10
+    [1] => 20
+    [3] => 40
+    [4] => 50
+)
+After reindexing:
+Array
+(
+    [0] => 10
+    [1] => 20
+    [2] => 40
+    [3] => 50
+)
+
+=== Associative Array Deletion ===
+Original Associative Array:
+Array
+(
+    [name] => Alice
+    [email] => alice@example.com
+    [role] => admin
+)
+After deleting 'email':
+Array
+(
+    [name] => Alice
+    [role] => admin
+)

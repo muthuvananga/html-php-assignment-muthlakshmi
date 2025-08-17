@@ -1,0 +1,80 @@
+81)
+<?php
+session_start();
+
+// Hardcoded admin credentials (for demo)
+$admin_user = "admin";
+$admin_pass = "password123";
+
+// Handle logout
+if (isset($_GET['action']) && $_GET['action'] === 'logout') {
+    session_unset();
+    session_destroy();
+    header("Location: admin.php");
+    exit;
+}
+
+// Handle login form submission
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $username = $_POST['username'] ?? '';
+    $password = $_POST['password'] ?? '';
+
+    if ($username === $admin_user && $password === $admin_pass) {
+        $_SESSION['admin'] = $username;
+        header("Location: admin.php");
+        exit;
+    } else {
+        $error = "Invalid username or password.";
+    }
+}
+
+// Check if admin is logged in
+$isLoggedIn = isset($_SESSION['admin']);
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Login System</title>
+</head>
+<body>
+
+<?php if (!$isLoggedIn): ?>
+
+    <h2>Admin Login</h2>
+
+    <?php if (isset($error)): ?>
+        <p style="color:red;"><?php echo htmlspecialchars($error); ?></p>
+    <?php endif; ?>
+
+    <form method="POST" action="admin.php">
+        <label>Username:</label><br>
+        <input type="text" name="username" required><br><br>
+
+        <label>Password:</label><br>
+        <input type="password" name="password" required><br><br>
+
+        <input type="submit" value="Login">
+    </form>
+
+<?php else: ?>
+
+    <h2>Welcome, <?php echo htmlspecialchars($_SESSION['admin']); ?>!</h2>
+    <p>This is the admin dashboard.</p>
+    <a href="admin.php?action=logout">Logout</a>
+
+<?php endif; ?>
+
+</body>
+</html>
+OUTPUT:
+Admin Login
+
+Username:
+
+Password:
+
+Welcome, !
+This is the admin dashboard.
+
+Logout

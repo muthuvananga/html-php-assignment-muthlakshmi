@@ -1,0 +1,20 @@
+75)
+<?php
+function appendLineToFile($filename, $newLine) {
+    $filepath = __DIR__ . '/' . $filename;
+
+    $handle = fopen($filepath, 'a');
+    if ($handle === false) {
+        return "Failed to open the file: $filepath";
+    }
+
+    fwrite($handle, $newLine . PHP_EOL);
+    fclose($handle);
+    return "Line appended successfully.";
+}
+
+// Usage example:
+echo appendLineToFile('example.txt', 'This is the appended line.');
+?>
+OUTPUT:
+Line appended successfully.

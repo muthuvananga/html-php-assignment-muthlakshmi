@@ -1,0 +1,48 @@
+100)
+<?php
+$message = "";
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['upload_file'])) {
+    $uploadDir = __DIR__ . '/uploads/';
+
+    // Create uploads directory if it doesn't exist
+    if (!is_dir($uploadDir)) {
+        mkdir($uploadDir, 0755, true);
+    }
+
+    $fileName = basename($_FILES['upload_file']['name']);
+    $targetFile = $uploadDir . $fileName;
+
+    // Check if file already exists
+    if (file_exists($targetFile)) {
+        $message = "Error: File '$fileName' already exists. Please upload a different file.";
+    } else {
+        // Move uploaded file
+        if (move_uploaded_file($_FILES['upload_file']['tmp_name'], $targetFile)) {
+            $message = "File '$fileName' uploaded successfully.";
+        } else {
+            $message = "Error uploading the file.";
+        }
+    }
+}
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>File Upload Restriction</title>
+</head>
+<body>
+    <h2>Upload File</h2>
+    <?php if ($message) echo "<p style='color:" . (strpos($message, 'Error') === 0 ? 'red' : 'green') . ";'>$message</p>"; ?>
+    <form method="POST" enctype="multipart/form-data" action="">
+        <input type="file" name="upload_file" required>
+        <input type="submit" value="Upload">
+    </form>
+</body>
+</html>
+OUTPUT:
+Upload File
+$message
+"; ?>
+No file chosen 

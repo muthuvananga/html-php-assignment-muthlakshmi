@@ -1,0 +1,32 @@
+93)
+<?php
+// Check if the cookie 'page_views' is already set
+if (isset($_COOKIE['page_views'])) {
+    $visits = $_COOKIE['page_views'] + 1;
+} else {
+    $visits = 1;
+}
+
+// Update the cookie value (expires in 1 day)
+setcookie('page_views', $visits, time() + (86400 * 1)); // 86400 seconds = 1 day
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Page Visit Counter</title>
+</head>
+<body>
+    <h2>Page Visit Tracker</h2>
+    <?php
+    if ($visits === 1) {
+        echo "Welcome! This is your first visit.";
+    } else {
+        echo "You have visited this page <strong>$visits</strong> times.";
+    }
+    ?>
+</body>
+</html>
+OUTPUT:
+Page Visit Tracker
+$visits times."; } ?>

@@ -1,0 +1,14 @@
+96)
+<?php
+// Start the session (must be the first thing in the script)
+session_start();
+
+// Register a session variable
+$_SESSION['username'] = "JohnDoe";
+
+// Display the session variable
+echo "Welcome, " . $_SESSION['username'];
+?>
+Output:
+
+Welcome, JohnDoe

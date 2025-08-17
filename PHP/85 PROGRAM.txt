@@ -1,0 +1,15 @@
+85)
+<?php
+$path = "/var/www/html/example/file.txt";
+
+// Get file name with extension
+$filename = basename($path);
+echo "File name with extension: " . $filename . "<br>";
+
+// Get file name without extension
+$filenameWithoutExt = basename($path, ".txt");
+echo "File name without extension: " . $filenameWithoutExt;
+?>
+Output:
+
+File name with extension: file.txt<br>File name without extension: file

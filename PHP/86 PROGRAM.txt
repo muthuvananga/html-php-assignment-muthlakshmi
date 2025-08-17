@@ -1,0 +1,41 @@
+86)
+<?php
+$filename = "sample.txt";
+
+// 1. Check if file exists
+if (file_exists($filename)) {
+    echo "File '$filename' exists.<br>";
+
+    // 2. Open file for reading
+    $file = fopen($filename, "r");
+    if ($file) {
+        // 3. Read contents
+        $filesize = filesize($filename);
+        $content = fread($file, $filesize);
+        echo "<strong>File content:</strong><br>" . nl2br($content) . "<br>";
+
+        // 4. Close the file
+        fclose($file);
+    }
+
+    // 5. Append new text to the file using file_put_contents with FILE_APPEND flag
+    $newText = "\nAppended line at " . date('Y-m-d H:i:s');
+    file_put_contents($filename, $newText, FILE_APPEND);
+    echo "New text appended to the file.<br>";
+
+    // 6. Display updated content using file_get_contents
+    echo "<strong>Updated file content:</strong><br>";
+    echo nl2br(file_get_contents($filename));
+
+    // 7. Optional: Delete the file (uncomment to enable)
+    // unlink($filename);
+    // echo "File deleted.";
+} else {
+    // Create the file and write some initial content
+    $initialContent = "This is a sample text file.\nCreated on " . date('Y-m-d H:i:s');
+    file_put_contents($filename, $initialContent);
+    echo "File '$filename' created with initial content.";
+}
+?>
+OUTPUT:
+File 'sample.txt' created with initial content.

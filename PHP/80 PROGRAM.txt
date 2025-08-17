@@ -1,0 +1,26 @@
+80)
+<?php
+// Set a test cookie named "test_cookie"
+setcookie("test_cookie", "This is a test", time() + 3600, "/"); // Expires in 1 hour
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Cookie</title>
+</head>
+<body>
+    <h2>Testing Cookie with setcookie()</h2>
+
+    <?php
+    if (isset($_COOKIE['test_cookie'])) {
+        echo "✅ Cookie is set. Value: <strong>" . htmlspecialchars($_COOKIE['test_cookie']) . "</strong>";
+    } else {
+        echo "⏳ Cookie not available yet. Please <a href=''>refresh the page</a>.";
+    }
+    ?>
+</body>
+</html>
+OUTPUT:
+Testing Cookie with setcookie()
+" . htmlspecialchars($_COOKIE['test_cookie']) . ""; } else { echo "⏳ Cookie not available yet. Please refresh the page."; } ?>

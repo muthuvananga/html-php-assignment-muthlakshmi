@@ -1,0 +1,35 @@
+67)
+<?php
+// Sample sentence
+$sentence = "Hello world! Welcome to the world of PHP. PHP is great, and the world loves PHP.";
+
+// Step 1: Tokenize sentence into words using regex (only letters and numbers)
+preg_match_all('/\b\w+\b/', strtolower($sentence), $matches);
+
+// $matches[0] contains all the words in lowercase
+$words = $matches[0];
+
+// Step 2: Count occurrences of each word
+$wordCount = array_count_values($words);
+
+// Step 3: Display results
+echo "Word Occurrences:\n";
+foreach ($wordCount as $word => $count) {
+    echo "$word: $count\n";
+}
+?>
+
+Output:
+
+Word Occurrences:
+hello: 1
+world: 3
+welcome: 1
+to: 1
+the: 2
+of: 1
+php: 3
+is: 1
+great: 1
+and: 1
+loves: 1

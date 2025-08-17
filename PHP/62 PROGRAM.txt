@@ -1,0 +1,19 @@
+62)
+<?php
+// Sample values
+$values = [1.65, 1.65, -1.54];
+
+echo "Original and Rounded Values:\n";
+
+foreach ($values as $val) {
+    $rounded = round($val, 1); // Round to 1 decimal place
+    echo "Original: $val => Rounded: $rounded\n";
+}
+?>
+
+Output:
+
+Original and Rounded Values:
+Original: 1.65 => Rounded: 1.7
+Original: 1.65 => Rounded: 1.7
+Original: -1.54 => Rounded: -1.5

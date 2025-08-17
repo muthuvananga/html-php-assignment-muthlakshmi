@@ -1,0 +1,15 @@
+103)
+<?php
+session_start();
+
+if (isset($_SESSION['pageviews'])) {
+    $_SESSION['pageviews']++;
+} else {
+    $_SESSION['pageviews'] = 1;
+}
+
+echo "You have viewed this page " . $_SESSION['pageviews'] . " time(s) in this session.";
+?>
+Output:
+
+You have viewed this page 1 time(s) in this session.

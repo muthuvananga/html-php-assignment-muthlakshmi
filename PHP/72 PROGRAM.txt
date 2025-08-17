@@ -1,0 +1,55 @@
+72)
+<?php
+session_start(); // Start the session
+
+echo "<h2>Session Functions Demo</h2>";
+
+// (i) session_register() — Deprecated in modern PHP, so we use $_SESSION instead
+// We'll simulate session_register by setting session variables directly
+if (!isset($_SESSION['username'])) {
+    $_SESSION['username'] = "JohnDoe";
+    $_SESSION['email'] = "john@example.com";
+    echo "Session variables registered.<br>";
+} else {
+    echo "Session variables already registered.<br>";
+}
+
+// Display current session data
+echo "<strong>Session Data:</strong><br>";
+print_r($_SESSION);
+echo "<br><br>";
+
+// (ii) session_unset() — Unset all session variables but keep session alive
+if (isset($_GET['unset'])) {
+    session_unset();
+    echo "Session variables have been unset.<br>";
+    echo "<strong>Session Data after session_unset():</strong><br>";
+    print_r($_SESSION);
+    echo "<br><br>";
+}
+
+// (iii) session_destroy() — Destroy the session completely
+if (isset($_GET['destroy'])) {
+    session_destroy();
+    echo "Session destroyed.<br>";
+    echo "Session data is no longer accessible.<br>";
+    exit; // Stop further output since session is destroyed
+}
+
+?>
+
+<!-- Links to trigger unset and destroy -->
+<a href="?unset=1">Unset Session Variables</a> | 
+<a href="?destroy=1">Destroy Session</a>
+
+Output:
+
+<h2>Session Functions Demo</h2>Session variables registered.<br><strong>Session Data:</strong><br>Array
+(
+    [username] => JohnDoe
+    [email] => john@example.com
+)
+<br><br>
+<!-- Links to trigger unset and destroy -->
+<a href="?unset=1">Unset Session Variables</a> | 
+<a href="?destroy=1">Destroy Session</a>

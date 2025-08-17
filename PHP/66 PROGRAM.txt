@@ -1,0 +1,13 @@
+66)
+<?php
+$arr = [1, 2, 3, 4];
+
+echo count($arr);   // Output: 4
+echo "\n";
+echo sizeof($arr);  // Output: 4
+?>
+
+Output:
+
+4
+4

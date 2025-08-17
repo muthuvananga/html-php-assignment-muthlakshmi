@@ -1,0 +1,27 @@
+79)
+<?php
+// Define the file names
+$file1 = 'file1.txt';
+$file2 = 'file2.txt';
+$outputFile = 'combined.txt';
+
+// Check if both source files exist
+if (!file_exists($file1) || !file_exists($file2)) {
+    echo "❌ One or both input files do not exist.";
+    exit;
+}
+
+// Read content from the first file
+$content1 = file_get_contents($file1);
+
+// Read content from the second file
+$content2 = file_get_contents($file2);
+
+// Combine and append to the output file
+$combinedContent = $content1 . PHP_EOL . $content2 . PHP_EOL;
+file_put_contents($outputFile, $combinedContent, FILE_APPEND); // Append mode
+
+echo "✅ Contents of '$file1' and '$file2' have been appended to '$outputFile'.";
+?>
+OUTPUT:
+❌ One or both input files do not exist.

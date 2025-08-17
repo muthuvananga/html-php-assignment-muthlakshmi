@@ -1,0 +1,74 @@
+87)
+<?php
+session_start();
+
+$admin_username = "admin";
+$admin_password = "password123"; // In real apps, use hashed passwords!
+
+$message = "";
+
+// Handle logout
+if (isset($_GET['action']) && $_GET['action'] === 'logout') {
+    session_unset();
+    session_destroy();
+    header("Location: " . $_SERVER['PHP_SELF']);
+    exit;
+}
+
+// Handle login form submission
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $username = $_POST['username'] ?? '';
+    $password = $_POST['password'] ?? '';
+
+    if ($username === $admin_username && $password === $admin_password) {
+        $_SESSION['admin_logged_in'] = true;
+        $_SESSION['admin_user'] = $username;
+        header("Location: " . $_SERVER['PHP_SELF']);
+        exit;
+    } else {
+        $message = "Invalid username or password!";
+    }
+}
+
+// If logged in, show dashboard; else show login form
+if (isset($_SESSION['admin_logged_in']) && $_SESSION['admin_logged_in'] === true):
+?>
+<!DOCTYPE html>
+<html>
+<head><title>Admin Dashboard</title></head>
+<body>
+    <h2>Welcome, <?php echo htmlspecialchars($_SESSION['admin_user']); ?>!</h2>
+    <p>This is the admin dashboard.</p>
+    <p><a href="?action=logout">Logout</a></p>
+</body>
+</html>
+<?php else: ?>
+<!DOCTYPE html>
+<html>
+<head><title>Admin Login</title></head>
+<body>
+    <h2>Admin Login</h2>
+    <?php if ($message): ?>
+        <p style="color:red;"><?php echo htmlspecialchars($message); ?></p>
+    <?php endif; ?>
+    <form method="POST" action="">
+        <label>Username:</label><br>
+        <input type="text" name="username" required><br><br>
+        <label>Password:</label><br>
+        <input type="password" name="password" required><br><br>
+        <input type="submit" value="Login">
+    </form>
+</body>
+</html>
+<?php endif; ?>
+
+OUTPUT:
+
+Welcome, !
+This is the admin dashboard.
+Logout
+Admin Login
+Username:
+Password:
+
+

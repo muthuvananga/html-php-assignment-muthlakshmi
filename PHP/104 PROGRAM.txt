@@ -1,0 +1,38 @@
+104)
+<?php
+$filename = "example.txt";  // Your text file
+$n = 5; // Change this to the line number you want to read
+
+if (!file_exists($filename)) {
+    echo "File does not exist.";
+    exit;
+}
+
+$file = fopen($filename, "r");
+if (!$file) {
+    echo "Unable to open file.";
+    exit;
+}
+
+$lineNumber = 0;
+$lineData = null;
+
+while (($line = fgets($file)) !== false) {
+    $lineNumber++;
+    if ($lineNumber == $n) {
+        $lineData = $line;
+        break;
+    }
+}
+
+fclose($file);
+
+if ($lineData !== null) {
+    echo "Line $n: " . htmlspecialchars($lineData);
+} else {
+    echo "no data";
+}
+?>
+Output:
+
+File does not exist.

@@ -1,0 +1,31 @@
+90)
+<?php
+$filename = "data.txt";
+
+// Check if the file exists
+if (file_exists($filename)) {
+    // Open the file for reading
+    $file = fopen($filename, "r");
+
+    if ($file) {
+        echo "<h3>Contents of '$filename':</h3><pre>";
+
+        // Read and print the entire file content
+        while (!feof($file)) {
+            $line = fgets($file);
+            echo htmlspecialchars($line);
+        }
+
+        echo "</pre>";
+
+        // Close the file
+        fclose($file);
+    } else {
+        echo "Unable to open the file.";
+    }
+} else {
+    echo "File '$filename' does not exist.";
+}
+?>
+OUTPUT:
+File 'data.txt' does not exist.

@@ -1,0 +1,28 @@
+60)
+<?php
+function searchValueInAssocArray($array, $valueToFind) {
+    // Use array_search to find the value in the array
+    $key = array_search($valueToFind, $array, true); // strict comparison
+
+    if ($key !== false) {
+        return $key; // Return the key where the value was found
+    } else {
+        return "Value not found.";
+    }
+}
+
+// Example usage:
+$assocArray = [
+    "name" => "Alice",
+    "email" => "alice@example.com",
+    "role" => "admin"
+];
+
+$searchValue = "admin";
+$result = searchValueInAssocArray($assocArray, $searchValue);
+
+echo "Search result: " . $result;
+?>
+Output:
+
+Search result: role

@@ -1,0 +1,50 @@
+82)
+<?php
+// Set cookies with different options
+
+// 1. Basic cookie (name, value, expires in 1 hour)
+setcookie("basic_cookie", "BasicValue", time() + 3600, "/");
+
+// 2. Cookie valid only in /test directory
+setcookie("path_cookie", "PathValue", time() + 3600, "/test/");
+
+// 3. Cookie for a specific domain (adjust to your domain)
+setcookie("domain_cookie", "DomainValue", time() + 3600, "/", "example.com");
+
+// 4. Secure cookie (only sent over HTTPS)
+setcookie("secure_cookie", "SecureValue", time() + 3600, "/", "", true);
+
+// 5. HttpOnly cookie (not accessible via JavaScript)
+setcookie("httponly_cookie", "HttpOnlyValue", time() + 3600, "/", "", false, true);
+
+// 6. Cookie with SameSite attribute (PHP 7.3+)
+setcookie("samesite_cookie", "SameSiteValue", [
+    'expires' => time() + 3600,
+    'path' => '/',
+    'domain' => '',
+    'secure' => false,
+    'httponly' => false,
+    'samesite' => 'Strict' // 'Lax' or 'None' also possible
+]);
+
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>setcookie() with Various Arguments</title>
+</head>
+<body>
+    <h2>setcookie() Examples Set</h2>
+    <p>Refresh the page to see the cookies in your browser.</p>
+
+    <h3>Currently available cookies:</h3>
+    <pre><?php print_r($_COOKIE); ?></pre>
+</body>
+</html>
+OUTPUT:
+time() + 3600, 'path' => '/', 'domain' => '', 'secure' => false, 'httponly' => false, 'samesite' => 'Strict' // 'Lax' or 'None' also possible ]); ?>
+setcookie() Examples Set
+Refresh the page to see the cookies in your browser.
+
+Currently available cookies:

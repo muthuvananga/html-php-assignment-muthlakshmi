@@ -1,0 +1,14 @@
+92)
+<?php
+// Step 1: Set the cookie (only if not already set)
+if (!isset($_COOKIE['user'])) {
+    setcookie("user", "JohnDoe", time() + 3600); // valid for 1 hour
+    echo "Cookie has been set. Please refresh the page to see the value.";
+} else {
+    // Step 2: Get the cookie value
+    echo "Cookie 'user' is set!<br>";
+    echo "Value: " . $_COOKIE['user'];
+}
+?>
+OUTPUT:
+Cookie has been set. Please refresh the page to see the value.

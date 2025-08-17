@@ -1,0 +1,54 @@
+98)
+<?php
+session_start();
+
+// If already logged in, redirect to dashboard
+if (isset($_SESSION['admin_logged_in']) && $_SESSION['admin_logged_in'] === true) {
+    header("Location: dashboard.php");
+    exit();
+}
+
+// Login check
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $admin_user = "admin";
+    $admin_pass = "12345"; // Example password
+
+    $username = $_POST['username'] ?? '';
+    $password = $_POST['password'] ?? '';
+
+    if ($username === $admin_user && $password === $admin_pass) {
+        $_SESSION['admin_logged_in'] = true;
+        $_SESSION['admin_name'] = $username;
+        header("Location: dashboard.php");
+        exit();
+    } else {
+        $error = "Invalid credentials!";
+    }
+}
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Login</title>
+</head>
+<body>
+    <h2>🔐 Admin Login</h2>
+    <?php if (!empty($error)) echo "<p style='color:red;'>$error</p>"; ?>
+    <form method="POST" action="">
+        Username: <input type="text" name="username" required><br><br>
+        Password: <input type="password" name="password" required><br><br>
+        <input type="submit" value="Login">
+    </form>
+</body>
+</html>
+OUTPUT:
+🔐 Admin Login
+$error
+"; ?>
+Username: 
+
+
+Password: 
+
+

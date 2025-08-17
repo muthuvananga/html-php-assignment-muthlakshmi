@@ -1,0 +1,20 @@
+88)
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Birthday Countdown</title>
+</head>
+<body>
+    <h2>Birthday Countdown</h2>
+    <p>Today is: <?php echo $today->format('Y-m-d'); ?></p>
+    <p>Your birthday is on: <?php echo $birthdayThisYear->format('Y-m-d'); ?></p>
+    <p><strong>Days left until your birthday: <?php echo $daysLeft; ?></strong></p>
+</body>
+</html>
+OUTPUT:
+Birthday Countdown
+Today is: format('Y-m-d'); ?>
+
+Your birthday is on: format('Y-m-d'); ?>
+
+Days left until your birthday:

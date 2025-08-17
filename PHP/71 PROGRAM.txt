@@ -1,0 +1,35 @@
+71)
+<?php
+$filename = "example.txt";
+
+echo "<h3>Mode: 'r' (read only)</h3>";
+if (file_exists($filename) && is_readable($filename)) {
+    $file = fopen($filename, "r");
+    if ($file) {
+        echo fread($file, filesize($filename));
+        fclose($file);
+    } else {
+        echo "Failed to open file in 'r' mode.<br>";
+    }
+} else {
+    echo "File '$filename' does not exist or is not readable.<br>";
+}
+
+echo "<h3>Mode: 'r+' (read and write)</h3>";
+if (file_exists($filename) && is_readable($filename) && is_writable($filename)) {
+    $file = fopen($filename, "r+");
+    if ($file) {
+        $content = fread($file, filesize($filename));
+        echo "Current content:<br>" . nl2br(htmlspecialchars($content));
+        fseek($file, 0);
+        fwrite($file, "New Text ");
+        fclose($file);
+    } else {
+        echo "Failed to open file in 'r+' mode.<br>";
+    }
+} else {
+    echo "File '$filename' does not exist, is not readable, or not writable.<br>";
+}
+OUTPUT:
+<h3>Mode: 'r' (read only)</h3>File 'example.txt' does not exist or is not readable.<br><h3>Mode: 'r+' (read and write)</h3>File 'example.txt' does not exist, is not readable, or not writable.<br
+// The rest of your original code for 'w', 'a', and 'x' modes...

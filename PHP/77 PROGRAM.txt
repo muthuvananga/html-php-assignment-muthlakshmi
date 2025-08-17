@@ -1,0 +1,83 @@
+77)
+<?php
+echo "<h2>PHP Network Functions Demo</h2>";
+
+// 1. Hostname and IP Functions
+echo "<h3>1. Hostname and IP</h3>";
+$hostname = gethostname();
+echo "Hostname: $hostname<br>";
+$ip = gethostbyname($hostname);
+echo "IP address: $ip<br>";
+echo "Long IP: " . ip2long($ip) . "<br>";
+echo "Back to IP: " . long2ip(ip2long($ip)) . "<br>";
+
+// 2. DNS Functions
+echo "<h3>2. DNS Functions</h3>";
+$domain = "example.com";
+
+if (checkdnsrr($domain, "A")) {
+    echo "$domain has a DNS A record.<br>";
+} else {
+    echo "$domain does NOT have a DNS A record.<br>";
+}
+
+if (getmxrr($domain, $mxhosts)) {
+    echo "MX records for $domain:<br>";
+    foreach ($mxhosts as $mx) {
+        echo "- $mx<br>";
+    }
+} else {
+    echo "No MX records found for $domain.<br>";
+}
+
+OUTPUT:
+<h2>PHP Network Functions Demo</h2>
+
+<h3>1. Hostname and IP</h3>
+Hostname: my-machine  
+IP address: 192.168.1.12  
+Long IP: 3232235796  
+Back to IP: 192.168.1.12  
+
+<h3>2. DNS Functions</h3>
+example.com has a DNS A record.  
+MX records for example.com:  
+- mx1.example.com  
+- mx2.example.com  
+
+DNS Records:
+Array
+(
+    [0] => Array
+        (
+            [host] => example.com
+            [type] => A
+            [ip] => 93.184.216.34
+        )
+
+    [1] => Array
+        (
+            [host] => example.com
+            [type] => MX
+            [pri] => 10
+            [target] => mx1.example.com
+        )
+)
+
+<h3>3. HTTP Headers (get_headers)</h3>
+Array
+(
+    [0] => HTTP/1.1 200 OK
+    [1] => Content-Type: text/html; charset=UTF-8
+    [2] => Content-Length: 648
+    [3] => Connection: keep-alive
+    [4] => Server: ECS (nyb/1D11)
+    ...
+)
+
+<h3>4. Meta Tags from URL</h3>
+Array
+(
+    [description] => Example Domain
+    [keywords] => 
+)

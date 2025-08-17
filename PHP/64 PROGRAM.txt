@@ -1,0 +1,70 @@
+64)
+<?php
+// Step 1: Historical sales data (e.g., last 6 months)
+$sales = [12000, 12500, 13000, 13500, 14000, 15000];
+
+// Step 2: Calculate monthly growth rates
+$growthRates = [];
+for ($i = 1; $i < count($sales); $i++) {
+    $prev = $sales[$i - 1];
+    $current = $sales[$i];
+    $growthRate = ($current - $prev) / $prev; // Growth rate as decimal
+    $growthRates[] = $growthRate;
+}
+
+// Step 3: Calculate average growth rate
+$averageGrowth = array_sum($growthRates) / count($growthRates);
+
+// Step 4: Forecast next 3 months using average growth
+$forecasts = [];
+$lastMonthSales = end($sales);
+for ($i = 0; $i < 3; $i++) {
+    $nextMonthSales = $lastMonthSales * (1 + $averageGrowth);
+    $forecasts[] = round($nextMonthSales, 2);
+    $lastMonthSales = $nextMonthSales; // Update for next iteration
+}
+
+// Output
+echo "=== Historical Sales ===\n";
+print_r($sales);
+
+echo "\n=== Growth Rates ===\n";
+foreach ($growthRates as $i => $rate) {
+    echo "Month " . ($i+1) . " to " . ($i+2) . ": " . round($rate * 100, 2) . "%\n";
+}
+
+echo "\nAverage Growth Rate: " . round($averageGrowth * 100, 2) . "%\n";
+
+echo "\n=== Forecasted Sales (Next 3 Months) ===\n";
+print_r($forecasts);
+?>
+
+Output:
+
+=== Historical Sales ===
+Array
+(
+    [0] => 12000
+    [1] => 12500
+    [2] => 13000
+    [3] => 13500
+    [4] => 14000
+    [5] => 15000
+)
+
+=== Growth Rates ===
+Month 1 to 2: 4.17%
+Month 2 to 3: 4%
+Month 3 to 4: 3.85%
+Month 4 to 5: 3.7%
+Month 5 to 6: 7.14%
+
+Average Growth Rate: 4.57%
+
+=== Forecasted Sales (Next 3 Months) ===
+Array
+(
+    [0] => 15685.78
+    [1] => 16402.92
+    [2] => 17152.84
+)

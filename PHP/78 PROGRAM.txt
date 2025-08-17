@@ -1,0 +1,48 @@
+78)
+<?php
+// Handle cookie actions based on query string
+if (isset($_GET['action'])) {
+    $action = $_GET['action'];
+
+    if ($action == 'set') {
+        setcookie("username", "JohnDoe", time() + 3600, "/"); // Set for 1 hour
+        header("Location: " . $_SERVER['PHP_SELF']);
+        exit;
+    }
+
+    if ($action == 'delete') {
+        setcookie("username", "", time() - 3600, "/"); // Expire the cookie
+        header("Location: " . $_SERVER['PHP_SELF']);
+        exit;
+    }
+}
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PHP Cookie Demo</title>
+</head>
+<body>
+    <h2>Cookie Demo</h2>
+
+    <?php
+    if (isset($_COOKIE['username'])) {
+        echo "✅ Cookie 'username' is set. Value: <strong>" . htmlspecialchars($_COOKIE['username']) . "</strong><br>";
+    } else {
+        echo "⚠️ Cookie 'username' is not set.<br>";
+    }
+    ?>
+
+    <br>
+    <a href="?action=set">Set Cookie</a> |
+    <a href="?action=delete">Delete Cookie</a> |
+    <a href="<?php echo $_SERVER['PHP_SELF']; ?>">Refresh Page</a>
+</body>
+</html>
+OUTPUT:
+Cookie Demo
+" . htmlspecialchars($_COOKIE['username']) . "
+"; } else { echo "⚠️ Cookie 'username' is not set.
+"; } ?>
+Set Cookie | Delete Cookie | Refresh Page

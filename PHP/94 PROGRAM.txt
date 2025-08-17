@@ -1,0 +1,109 @@
+94)
+<?php
+echo "<h2>PHP File Handling Modes Demonstration</h2>";
+
+// Ensure an initial file exists for 'r' and 'r+' modes
+file_put_contents("readfile.txt", "This is the original content.\n");
+
+// 1. 'r' mode: Read only
+echo "<h3>1. Mode: 'r' (read only)</h3>";
+if (file_exists("readfile.txt")) {
+    $f = fopen("readfile.txt", "r");
+    echo nl2br(fread($f, filesize("readfile.txt")));
+    fclose($f);
+} else {
+    echo "File not found.<br>";
+}
+
+// 2. 'r+' mode: Read and write
+echo "<h3>2. Mode: 'r+' (read & write)</h3>";
+$f = fopen("readfile.txt", "r+");
+if ($f) {
+    fwrite($f, "Updated ");
+    rewind($f);
+    echo nl2br(fread($f, filesize("readfile.txt")));
+    fclose($f);
+} else {
+    echo "Failed to open file in r+ mode.<br>";
+}
+
+// 3. 'w' mode: Write only, truncate or create
+echo "<h3>3. Mode: 'w' (write only, truncate)</h3>";
+$f = fopen("writefile.txt", "w");
+fwrite($f, "Overwritten by w mode.\n");
+fclose($f);
+echo "Data written to writefile.txt<br>";
+
+// 4. 'w+' mode: Read and write, truncate
+echo "<h3>4. Mode: 'w+' (read & write, truncate)</h3>";
+$f = fopen("writeplus.txt", "w+");
+fwrite($f, "Writing and reading in w+ mode.");
+rewind($f);
+echo fread($f, 100);
+fclose($f);
+
+// 5. 'a' mode: Append
+echo "<h3>5. Mode: 'a' (append)</h3>";
+$f = fopen("appendfile.txt", "a");
+fwrite($f, "Appended line at " . date("H:i:s") . "\n");
+fclose($f);
+echo "Appended to appendfile.txt<br>";
+
+// 6. 'a+' mode: Read and append
+echo "<h3>6. Mode: 'a+' (read & append)</h3>";
+$f = fopen("appendfile.txt", "a+");
+fwrite($f, "Another appended line.\n");
+rewind($f);
+echo nl2br(fread($f, filesize("appendfile.txt")));
+fclose($f);
+
+// 7. 'x' mode: Create and write only (fails if file exists)
+echo "<h3>7. Mode: 'x' (create & write only)</h3>";
+if (!file_exists("newfile_x.txt")) {
+    $f = fopen("newfile_x.txt", "x");
+    fwrite($f, "File created using 'x' mode.\n");
+    fclose($f);
+    echo "newfile_x.txt created.<br>";
+} else {
+    echo "newfile_x.txt already exists. 'x' mode failed.<br>";
+}
+
+// 8. 'x+' mode: Create, read, and write (fails if exists)
+echo "<h3>8. Mode: 'x+' (create, read & write)</h3>";
+if (!file_exists("newfile_xplus.txt")) {
+    $f = fopen("newfile_xplus.txt", "x+");
+    fwrite($f, "Using x+ mode to write and read.");
+    rewind($f);
+    echo fread($f, 100);
+    fclose($f);
+} else {
+    echo "newfile_xplus.txt already exists. 'x+' mode failed.<br>";
+}
+?>
+OUTPUT:
+PHP File Handling Modes Demonstration
+
+1. Mode: 'r' (read only)
+This is the original content.
+
+2. Mode: 'r+' (read & write)
+Updated is the original content.
+
+3. Mode: 'w' (write only, truncate)
+Data written to writefile.txt
+
+4. Mode: 'w+' (read & write, truncate)
+Writing and reading in w+ mode.
+
+5. Mode: 'a' (append)
+Appended to appendfile.txt
+
+6. Mode: 'a+' (read & append)
+Appended line at 15:35:12
+Another appended line.
+
+7. Mode: 'x' (create & write only)
+newfile_x.txt created.
+
+8. Mode: 'x+' (create, read & write)
+Using x+ mode to write and read.

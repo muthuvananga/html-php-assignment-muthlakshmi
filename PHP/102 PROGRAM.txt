@@ -1,0 +1,21 @@
+102)
+<?php
+// Start or resume a session
+session_start();
+
+// Set a session variable
+$_SESSION['username'] = 'JohnDoe';
+
+// Access and display the session variable
+echo "Hello, " . $_SESSION['username'] . "! Welcome back.";
+
+// You can also check if a session variable is set
+if (isset($_SESSION['username'])) {
+    echo "<br>Your session username is: " . $_SESSION['username'];
+} else {
+    echo "<br>No username found in session.";
+}
+?>
+Output:
+
+Hello, JohnDoe! Welcome back.<br>Your session username is: JohnDoe

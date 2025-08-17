@@ -1,0 +1,56 @@
+74)
+<?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+$filename = __DIR__ . '/example.txt';
+
+// 1. fopen() & fwrite() - Open file for writing and write data
+$handle = fopen($filename, 'w');
+if ($handle) {
+    fwrite($handle, "Hello, world!\nThis is a test file.\n");
+    fclose($handle);
+    echo "1. Written to file using fopen() & fwrite().<br>";
+} else {
+    echo "Failed to open file for writing.<br>";
+}
+
+// 2. file_put_contents() - Write string to file (overwrites)
+file_put_contents($filename, "Overwritten using file_put_contents().\n");
+echo "2. File overwritten using file_put_contents().<br>";
+
+// 3. file_get_contents() - Read whole file content at once
+$content = file_get_contents($filename);
+echo "3. Read whole file using file_get_contents():<br>";
+echo nl2br(htmlspecialchars($content)) . "<br>";
+
+// 4. fopen() & fread() - Open and read file by bytes
+$handle = fopen($filename, 'r');
+if ($handle) {
+    $size = filesize($filename);
+    $data = fread($handle, $size);
+    fclose($handle);
+    echo "4. Read file using fopen() & fread():<br>";
+    echo nl2br(htmlspecialchars($data)) . "<br>";
+}
+
+// 5. fopen() & fgets() with feof() - Read file line-by-line
+$handle = fopen($filename, 'r');
+if ($handle) {
+    echo "5. Read file line-by-line using fgets() and feof():<br>";
+    while (!feof($handle)) {
+        $line = fgets($handle);
+        if ($line !== false) {
+            echo nl2br(htmlspecialchars($line));
+        }
+    }
+    fclose($handle);
+}
+?>
+OUTPUT:
+
+1. Written to file using fopen() & fwrite().<br>
+2. File overwritten using file_put_contents().<br>
+3. Read whole file using file_get_contents():<br>Overwritten using file_put_contents().<br />
+<br>4. Read file using fopen() & fread():<br>Overwritten using file_put_contents().<br />
+<br>5. Read file line-by-line using fgets() and feof():<br>Overwritten using file_put_contents().<br />

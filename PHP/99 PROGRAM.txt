@@ -1,0 +1,97 @@
+99)
+<?php
+session_start(); // (a) Start or resume session
+
+// (b) Check if 'visit_count' exists in session
+if (!isset($_SESSION['visit_count'])) {
+    echo "<p>Welcome, new visitor!</p>";
+    $_SESSION['visit_count'] = 0;
+} else {
+    echo "<p>Welcome back!</p>";
+}
+
+// (c) Increment visit counter
+$_SESSION['visit_count']++;
+
+// (d) Store and display visit count
+echo "<p>You have visited this page <strong>" . $_SESSION['visit_count'] . "</strong> times.</p>";
+
+// (e) Provide link back to this page with session ID (if cookies disabled)
+if (ini_get("session.use_cookies") == 0) {
+    // If cookies are disabled, embed session id in URL
+    echo "<p><a href='" . htmlspecialchars($_SERVER['PHP_SELF']) . "?". session_name() . "=" . session_id() . "'>Reload Page with session ID</a></p>";
+} else {
+    // Cookies enabled: normal reload link
+    echo "<p><a href='" . htmlspecialchars($_SERVER['PHP_SELF']) . "'>Reload Page</a></p>";
+}
+
+// (f) File upload handling
+$message = "";
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['upload_file'])) {
+    $uploadDir = __DIR__ . '/uploads/';
+    
+    // Create upload directory if not exists
+    if (!is_dir($uploadDir)) {
+        mkdir($uploadDir, 0755, true);
+    }
+
+    $fileName = basename($_FILES['upload_file']['name']);
+    $targetFile = $uploadDir . $fileName;
+
+    // Check if file already exists to restrict duplicate upload
+    if (file_exists($targetFile)) {
+        $message = "Error: The file <strong>$fileName</strong> already exists. Please upload a different file.";
+    } else {
+        // Move uploaded file to target directory
+        if (move_uploaded_file($_FILES['upload_file']['tmp_name'], $targetFile)) {
+            $message = "File <strong>$fileName</strong> uploaded successfully!";
+        } else {
+            $message = "Error uploading the file.";
+        }
+    }
+}
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Session & File Upload Example</title>
+</head>
+<body>
+
+<h2>Session Visit Counter</h2>
+
+<!-- Display message after upload -->
+<?php
+if ($message) {
+    echo "<p style='color:" . (strpos($message, 'Error') === 0 ? 'red' : 'green') . ";'>$message</p>";
+}
+?>
+
+<h2>Upload a File</h2>
+<form method="POST" enctype="multipart/form-data" action="">
+    <input type="file" name="upload_file" required>
+    <input type="submit" value="Upload File">
+</form>
+
+</body>
+</html>
+OUTPUT:
+Welcome back!
+
+"; } // (c) Increment visit counter $_SESSION['visit_count']++; // (d) Store and display visit count echo "
+You have visited this page " . $_SESSION['visit_count'] . " times.
+
+"; // (e) Provide link back to this page with session ID (if cookies disabled) if (ini_get("session.use_cookies") == 0) { // If cookies are disabled, embed session id in URL echo "
+Reload Page with session ID
+
+"; } else { // Cookies enabled: normal reload link echo "
+Reload Page
+
+"; } // (f) File upload handling $message = ""; if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['upload_file'])) { $uploadDir = __DIR__ . '/uploads/'; // Create upload directory if not exists if (!is_dir($uploadDir)) { mkdir($uploadDir, 0755, true); } $fileName = basename($_FILES['upload_file']['name']); $targetFile = $uploadDir . $fileName; // Check if file already exists to restrict duplicate upload if (file_exists($targetFile)) { $message = "Error: The file $fileName already exists. Please upload a different file."; } else { // Move uploaded file to target directory if (move_uploaded_file($_FILES['upload_file']['tmp_name'], $targetFile)) { $message = "File $fileName uploaded successfully!"; } else { $message = "Error uploading the file."; } } } ?>
+Session Visit Counter
+$message
+"; } ?>
+Upload a File
+No file chosen 

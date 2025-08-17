@@ -1,0 +1,87 @@
+95)
+<?php
+// Start the session
+session_start();
+
+// Handle adding items to the cart
+if (isset($_GET['add'])) {
+    $item = $_GET['add'];
+    $price = rand(10, 100); // Simulate price
+
+    if (!isset($_SESSION['cart'])) {
+        $_SESSION['cart'] = [];
+    }
+
+    $_SESSION['cart'][] = ['item' => $item, 'price' => $price];
+    $message = "Item <strong>$item</strong> added to cart.";
+}
+
+// Handle clearing the cart
+if (isset($_GET['clear'])) {
+    unset($_SESSION['cart']);
+    $message = "Cart has been cleared.";
+}
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple PHP Shopping Cart (Session Example)</title>
+</head>
+<body>
+    <h2>🛒 PHP Shopping Cart Example (Using Sessions)</h2>
+
+    <?php
+    if (!empty($message)) {
+        echo "<p style='color:green;'>$message</p>";
+    }
+    ?>
+
+    <h3>Add Items</h3>
+    <ul>
+        <li><a href="?add=Apple">Add Apple</a></li>
+        <li><a href="?add=Banana">Add Banana</a></li>
+        <li><a href="?add=Orange">Add Orange</a></li>
+    </ul>
+
+    <h3>🧾 Your Cart</h3>
+    <?php
+    if (isset($_SESSION['cart']) && count($_SESSION['cart']) > 0) {
+        echo "<table border='1' cellpadding='6'>
+                <tr><th>Item</th><th>Price ($)</th></tr>";
+        $total = 0;
+        foreach ($_SESSION['cart'] as $product) {
+            echo "<tr><td>{$product['item']}</td><td>{$product['price']}</td></tr>";
+            $total += $product['price'];
+        }
+        echo "<tr><td><strong>Total</strong></td><td><strong>$total</strong></td></tr>";
+        echo "</table><br>";
+        echo "<a href='?clear=true'>Clear Cart</a>";
+    } else {
+        echo "Your cart is empty.";
+    }
+    ?>
+
+    <br><br>
+    <hr>
+    <p><strong>Note:</strong> This is a demo. Data is stored in the session on the server and persists across pages.</p>
+</body>
+</html>
+
+OUTPUT:
+🛒 PHP Shopping Cart Example (Using Sessions)
+$message
+"; } ?>
+Add Items
+Add Apple
+Add Banana
+Add Orange
+🧾 Your Cart
+0) { echo ""; $total = 0; foreach ($_SESSION['cart'] as $product) { echo ""; $total += $product['price']; } echo ""; echo "
+Item	Price ($)
+{$product['item']}	{$product['price']}
+Total	$total
+
+"; echo "Clear Cart"; } else { echo "Your cart is empty."; } ?>
+
+Note: This is a demo. Data is stored in the session on the server and persists across pages.

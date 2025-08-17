@@ -1,0 +1,21 @@
+68)
+<?php
+function divide($numerator, $denominator) {
+    if ($denominator == 0) {
+        // Throw an exception if denominator is zero
+        throw new Exception("Division by zero error.");
+    }
+    return $numerator / $denominator;
+}
+
+try {
+    $result = divide(10, 0);
+    echo "Result: $result";
+} catch (Exception $e) {
+    echo "Caught exception: " . $e->getMessage();
+}
+?>
+
+Output:
+
+Caught exception: Division by zero error.

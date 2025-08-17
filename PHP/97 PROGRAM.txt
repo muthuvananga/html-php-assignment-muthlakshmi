@@ -1,0 +1,39 @@
+97)
+<?php
+session_start(); // Start or resume session
+
+// Set session variables
+$_SESSION['username'] = "John";
+$_SESSION['role'] = "Admin";
+
+// Display session ID
+echo "Session ID: " . session_id() . "<br>";
+
+// Display session name
+echo "Session Name: " . session_name() . "<br>";
+
+// Display current session status
+$status = session_status();
+echo "Session Status: ";
+switch ($status) {
+    case PHP_SESSION_DISABLED:
+        echo "Sessions are disabled.";
+        break;
+    case PHP_SESSION_NONE:
+        echo "No session is active.";
+        break;
+    case PHP_SESSION_ACTIVE:
+        echo "Session is active.";
+        break;
+}
+echo "<br>";
+
+// Unset session variables (but keep session alive)
+session_unset();
+
+// Destroy session completely
+// session_destroy(); // Uncomment to destroy session
+?>
+Output:
+
+Session ID: tt9d39ke4bl0lqt7jvtdudi2qr<br>Session Name: PHPSESSID<br>Session Status: Session is active.<br>

@@ -1,0 +1,57 @@
+84)
+<?php
+session_start();
+
+// Set session variables if 'set' action is requested
+if (isset($_GET['action']) && $_GET['action'] === 'set') {
+    $_SESSION['username'] = "JohnDoe";
+    $_SESSION['email'] = "john@example.com";
+    $message = "Session variables are set.";
+}
+
+// Remove 'email' from session if 'remove' action is requested
+if (isset($_GET['action']) && $_GET['action'] === 'remove') {
+    if (isset($_SESSION['email'])) {
+        unset($_SESSION['email']);
+        $message = "'email' session variable removed.";
+    } else {
+        $message = "'email' session variable does not exist.";
+    }
+}
+
+// Destroy session if 'destroy' action is requested
+if (isset($_GET['action']) && $_GET['action'] === 'destroy') {
+    session_unset();
+    session_destroy();
+    $message = "Session destroyed.";
+}
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Session Management</title>
+</head>
+<body>
+    <h2>PHP Session Example</h2>
+
+    <?php if (isset($message)) {
+        echo "<p><strong>$message</strong></p>";
+    } ?>
+
+    <h3>Current Session Data:</h3>
+    <pre><?php print_r($_SESSION); ?></pre>
+
+    <p>
+        <a href="?action=set">Set Session Variables</a> | 
+        <a href="?action=remove">Remove 'email' from Session</a> | 
+        <a href="?action=destroy">Destroy Session</a>
+    </p>
+</body>
+</html>
+OUTPUT:
+PHP Session Example
+$message
+"; } ?>
+Current Session Data:
+Set Session Variables | Remove 'email' from Session | Destroy Session

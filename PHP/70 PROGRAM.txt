@@ -1,0 +1,52 @@
+70)
+<!-- Save this as input_numbers.php and run on a PHP server -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Number Sequence Input</title>
+</head>
+<body>
+
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Get input string from form
+    $input = $_POST['numbers'] ?? '';
+
+    // Split the input by commas or spaces, trim spaces
+    $numbers = preg_split('/[\s,]+/', trim($input));
+
+    // Filter to keep only numeric values
+    $numbers = array_filter($numbers, 'is_numeric');
+
+    // Convert strings to numbers (int or float)
+    $numbers = array_map('floatval', $numbers);
+
+    echo "<h3>You entered these numbers:</h3>";
+    echo "<pre>";
+    print_r($numbers);
+    echo "</pre>";
+} else {
+    // Show the form
+    ?>
+    <form method="post" action="">
+        Enter a sequence of numbers (separated by spaces or commas):<br>
+        <input type="text" name="numbers" size="50" placeholder="e.g. 12, 45 78, 90.5"><br><br>
+        <input type="submit" value="Submit">
+    </form>
+    <?php
+}
+?>
+
+</body>
+</html>
+OUTPUT:
+You entered these numbers:"; echo "
+";
+    print_r($numbers);
+    echo "
+"; } else { // Show the form ?>
+Enter a sequence of numbers (separated by spaces or commas):
+e.g. 12, 45 78, 90.5
+
+

@@ -1,0 +1,31 @@
+89)
+?php
+$filename = "example.txt";
+
+// Check if file exists
+if (file_exists($filename)) {
+    // Open the file for reading
+    $file = fopen($filename, "r");
+
+    if ($file) {
+        echo "<h3>Contents of '$filename':</h3><pre>";
+
+        // Read the file until end-of-file
+        while (!feof($file)) {
+            $line = fgets($file);
+            echo htmlspecialchars($line);
+        }
+
+        echo "</pre>";
+
+        // Close the file
+        fclose($file);
+    } else {
+        echo "Failed to open the file.";
+    }
+} else {
+    echo "File does not exist.";
+}
+?>
+OUTPUT:
+File does not exist.
