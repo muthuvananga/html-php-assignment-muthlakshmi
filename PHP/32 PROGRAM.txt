@@ -1,11 +1,13 @@
-32 A)
-<?php
-$mail = "malar@example.com";
+32 A)<?php
+$mail = "admin@example.com";
 $mail = str_replace("a","@",$mail);
 echo "Contact me at $mail.";
 ?>
-OUTPUT:
-Contact me at m@l@r@ex@mple.com.
+
+output:
+Contact me at @dmin@ex@mple.com.
+
+
 === Code Execution Successful ===
 32 B)
 <?php
