@@ -1,0 +1,83 @@
+57)
+<?php
+echo "=== Regular Expressions Examples ===\n\n";
+
+// 1. Basic match with start (^) and end ($) anchors
+$string1 = "Hello World";
+if (preg_match("/^Hello/", $string1)) {
+    echo "1. '$string1' starts with 'Hello'\n";
+}
+if (preg_match("/World$/", $string1)) {
+    echo "2. '$string1' ends with 'World'\n";
+}
+
+// 2. Character class and negated class
+$string2 = "apple123";
+if (preg_match("/[a-z]+/", $string2)) {
+    echo "3. '$string2' contains lowercase letters\n";
+}
+if (preg_match("/[^0-9]+/", $string2)) {
+    echo "4. '$string2' contains non-digit characters\n";
+}
+
+// 3. Quantifiers (*, +, ?)
+$string3 = "color or colour?";
+if (preg_match("/colou?r/", $string3, $matches)) {
+    echo "5. Matches 'color' or 'colour': " . $matches[0] . "\n";
+}
+
+// 4. Grouping and alternation
+$string4 = "I like cats and dogs.";
+if (preg_match("/cat|dog/", $string4, $matches)) {
+    echo "6. Found animal in string: " . $matches[0] . "\n";
+}
+
+// 5. \d, \w, \s usage
+$string5 = "User_123 logged in at 10:30 AM";
+if (preg_match_all("/\d+/", $string5, $digits)) {
+    echo "7. Numbers found: " . implode(", ", $digits[0]) . "\n";
+}
+if (preg_match_all("/\w+/", $string5, $words)) {
+    echo "8. Words found: " . implode(", ", $words[0]) . "\n";
+}
+
+// 6. preg_match_all example: Find all three-letter words
+$string6 = "cat, bat, rat, mat, elephant";
+preg_match_all("/\b\w{3}\b/", $string6, $matches6);
+echo "9. Three-letter words: " . implode(", ", $matches6[0]) . "\n";
+
+// 7. preg_replace example: Replace 'fox' with 'dog'
+$text7 = "The quick brown fox.";
+$newText7 = preg_replace("/fox/", "dog", $text7);
+echo "10. After replacement: $newText7\n";
+
+// 8. Email validation example
+$email = "user@example.com";
+if (preg_match("/^[\w\-\.]+@([\w\-]+\.)+[a-zA-Z]{2,7}$/", $email)) {
+    echo "11. '$email' is a valid email address.\n";
+} else {
+    echo "11. '$email' is NOT a valid email address.\n";
+}
+
+// 9. Natural order: special characters and escaped ones
+$string9 = "file_01.txt";
+if (preg_match("/file_\d{2}\.txt/", $string9)) {
+    echo "12. '$string9' matches file pattern\n";
+}
+
+?>
+OUTPUT:
+=== Regular Expressions Examples ===
+
+1. 'Hello World' starts with 'Hello'
+2. 'Hello World' ends with 'World'
+3. 'apple123' contains lowercase letters
+4. 'apple123' contains non-digit characters
+5. Matches 'color' or 'colour': color
+6. Found animal in string: cat
+7. Numbers found: 123, 10, 30
+8. Words found: User_123, logged, in, at, 10, 30, AM
+9. Three-letter words: cat, bat, rat, mat
+10. After replacement: The quick brown dog.
+11. 'user@example.com' is a valid email address.
+12. 'file_01.txt' matches file pattern

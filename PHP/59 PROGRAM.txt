@@ -1,0 +1,22 @@
+59)
+<?php
+function calculateAverage($numbers) {
+    if (empty($numbers)) {
+        return 0; // Avoid division by zero
+    }
+
+    $sum = array_sum($numbers);
+    $count = count($numbers);
+    
+    return $sum / $count;
+}
+
+// Example usage:
+$values = [10, 20, 30, 40, 50];
+$average = calculateAverage($values);
+
+echo "Average value: " . $average;
+?>
+
+Output:
+Average value: 30

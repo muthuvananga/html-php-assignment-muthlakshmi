@@ -1,0 +1,17 @@
+38)
+<?php
+$fruits = array("Apple", "Banana", "Cherry", "Date");
+reset($fruits);
+while (($fruit = current($fruits)) !== false) {
+    // Step 4: Access key and value
+    echo "Key: " . key($fruits) . " | Value: " . $fruit . "<br>";
+    next($fruits);
+}
+?>
+OUTPUT:
+Key: 0 | Value: Apple<br>
+Key: 1 | Value: Banana<br>
+Key: 2 | Value: Cherry<br>
+Key: 3 | Value: Date<br>
+
+

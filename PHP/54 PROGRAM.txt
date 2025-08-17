@@ -1,0 +1,72 @@
+54)
+<?php
+// Initialize an empty queue
+$ticketQueue = [];
+
+// Function to add a customer to the queue (enqueue)
+function bookTicket(&$queue, $customerName) {
+    array_push($queue, $customerName);
+    echo "Ticket booked for: $customerName\n";
+}
+
+// Function to serve a customer from the queue (dequeue)
+function serveCustomer(&$queue) {
+    if (empty($queue)) {
+        echo "No customers in the queue.\n";
+        return;
+    }
+    $served = array_shift($queue);
+    echo "Serving ticket for: $served\n";
+}
+
+// Simulate booking tickets
+bookTicket($ticketQueue, "Alice");
+bookTicket($ticketQueue, "Bob");
+bookTicket($ticketQueue, "Charlie");
+
+echo "\nCurrent queue:\n";
+print_r($ticketQueue);
+
+echo "\nServing customers:\n";
+serveCustomer($ticketQueue);
+serveCustomer($ticketQueue);
+
+echo "\nQueue after serving two customers:\n";
+print_r($ticketQueue);
+
+// Add another booking
+bookTicket($ticketQueue, "David");
+
+echo "\nFinal queue:\n";
+print_r($ticketQueue);
+?>
+OUTPUT:
+Ticket booked for: Alice
+Ticket booked for: Bob
+Ticket booked for: Charlie
+
+Current queue:
+Array
+(
+    [0] => Alice
+    [1] => Bob
+    [2] => Charlie
+)
+
+Serving customers:
+Serving ticket for: Alice
+Serving ticket for: Bob
+
+Queue after serving two customers:
+Array
+(
+    [0] => Charlie
+)
+Ticket booked for: David
+
+Final queue:
+Array
+(
+    [0] => Charlie
+    [1] => David
+)

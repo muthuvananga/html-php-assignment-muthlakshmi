@@ -1,0 +1,20 @@
+32 A)
+<?php
+$mail = "malar@example.com";
+$mail = str_replace("a","@",$mail);
+echo "Contact me at $mail.";
+?>
+OUTPUT:
+Contact me at m@l@r@ex@mple.com.
+=== Code Execution Successful ===
+32 B)
+<?php
+$names = array("alex", "jean", "emily", "jane");
+$name = preg_grep("/^e/", $names);
+print_r($name);
+?>
+output:
+Array
+(
+    [2] => emily
+)

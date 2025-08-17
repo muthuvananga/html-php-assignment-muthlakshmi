@@ -1,0 +1,83 @@
+44)
+<?php
+// Define all the necessary functions first
+
+function createPlaylist(&$playlists, $name) {
+    $playlists[] = ['name' => $name, 'songs' => []];
+}
+
+function addSongToPlaylist(&$playlists, $playlistName, $song) {
+    foreach ($playlists as &$playlist) {
+        if ($playlist['name'] === $playlistName) {
+            $playlist['songs'][] = $song;
+            return true; // Added successfully
+        }
+    }
+    return false; // Playlist not found
+}
+
+function removeSongFromPlaylist(&$playlists, $playlistName, $songId) {
+    foreach ($playlists as &$playlist) {
+        if ($playlist['name'] === $playlistName) {
+            $playlist['songs'] = array_filter($playlist['songs'], function($song) use ($songId) {
+                return $song['id'] !== $songId;
+            });
+            // Reindex songs
+            $playlist['songs'] = array_values($playlist['songs']);
+            return true;
+        }
+    }
+    return false;
+}
+
+function moveSongInPlaylist(&$playlists, $playlistName, $songId, $newPosition) {
+    foreach ($playlists as &$playlist) {
+        if ($playlist['name'] === $playlistName) {
+            foreach ($playlist['songs'] as $index => $song) {
+                if ($song['id'] === $songId) {
+                    $songToMove = $song;
+                    array_splice($playlist['songs'], $index, 1);
+                    $newPosition = max(0, min($newPosition, count($playlist['songs'])));
+                    array_splice($playlist['songs'], $newPosition, 0, [$songToMove]);
+                    return true;
+                }
+            }
+        }
+    }
+    return false;
+}
+
+function displayPlaylists($playlists) {
+    foreach ($playlists as $playlist) {
+        echo "Playlist: " . $playlist['name'] . "\n";
+        foreach ($playlist['songs'] as $index => $song) {
+            echo ($index + 1) . ". " . $song['title'] . " by " . $song['artist'] . "\n";
+        }
+        echo "\n";
+    }
+}
+
+// Now use the functions:
+
+$playlists = [];
+
+$song1 = ['id'=>1, 'title'=>'Song A', 'artist'=>'Artist 1', 'duration'=>210];
+$song2 = ['id'=>2, 'title'=>'Song B', 'artist'=>'Artist 2', 'duration'=>180];
+$song3 = ['id'=>3, 'title'=>'Song C', 'artist'=>'Artist 3', 'duration'=>240];
+
+createPlaylist($playlists, 'Chill Vibes');
+
+addSongToPlaylist($playlists, 'Chill Vibes', $song1);
+addSongToPlaylist($playlists, 'Chill Vibes', $song2);
+addSongToPlaylist($playlists, 'Chill Vibes', $song3);
+
+removeSongFromPlaylist($playlists, 'Chill Vibes', 2);
+
+moveSongInPlaylist($playlists, 'Chill Vibes', 3, 0);
+
+displayPlaylists($playlists);
+?>
+OUTPUT:
+Playlist: Chill Vibes
+1. Song C by Artist 3
+2. Song A by Artist 1

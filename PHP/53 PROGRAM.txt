@@ -1,0 +1,48 @@
+53)
+<?php
+$array = [10, 20, 30, 40, 50];
+
+echo "Original array:\n";
+print_r($array);
+
+// array_pop() removes the **last** element
+$popValue = array_pop($array);
+echo "\nAfter array_pop():\n";
+echo "Removed element: $popValue\n";
+print_r($array);
+
+// array_shift() removes the **first** element
+$shiftValue = array_shift($array);
+echo "\nAfter array_shift():\n";
+echo "Removed element: $shiftValue\n";
+print_r($array);
+?>
+OUTPUT:
+Original array:
+Array
+(
+    [0] => 10
+    [1] => 20
+    [2] => 30
+    [3] => 40
+    [4] => 50
+)
+
+After array_pop():
+Removed element: 50
+Array
+(
+    [0] => 10
+    [1] => 20
+    [2] => 30
+    [3] => 40
+)
+
+After array_shift():
+Removed element: 10
+Array
+(
+    [0] => 20
+    [1] => 30
+    [2] => 40
+)

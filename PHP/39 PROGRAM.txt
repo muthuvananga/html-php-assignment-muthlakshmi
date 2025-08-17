@@ -1,0 +1,45 @@
+39)
+<?php
+
+// Step 1: Input student data
+$students = array(
+    array("name" => "Alice", "score" => 95),
+    array("name" => "Bob", "score" => 82),
+    array("name" => "Charlie", "score" => 74),
+    array("name" => "Diana", "score" => 63),
+    array("name" => "Ethan", "score" => 58),
+);
+
+// Step 2: Calculate grades
+foreach ($students as &$student) {
+    $score = $student['score'];
+
+    if ($score >= 90) {
+        $grade = 'A';
+    } elseif ($score >= 80) {
+        $grade = 'B';
+    } elseif ($score >= 70) {
+        $grade = 'C';
+    } elseif ($score >= 60) {
+        $grade = 'D';
+    } else {
+        $grade = 'F';
+    }
+
+    $student['grade'] = $grade; // Add grade to array
+}
+unset($student); // break reference
+
+// Step 3: Generate summary report
+echo "<h3>Student Grade Report</h3>";
+foreach ($students as $student) {
+    echo "Name: {$student['name']} | Score: {$student['score']} | Grade: {$student['grade']}<br>";
+}
+
+// Step 4 (Optional): Calculate average score
+$scores = array_column($students, 'score');
+$average = array_sum($scores) / count($scores);
+echo "<br><strong>Class Average Score:</strong> " . round($average, 2);
+?>
+OUTPUT:
+<h3>Student Grade Report</h3>Name: Alice | Score: 95 | Grade: A<br>Name: Bob | Score: 82 | Grade: B<br>Name: Charlie | Score: 74 | Grade: C<br>Name: Diana | Score: 63 | Grade: D<br>Name: Ethan | Score: 58 | Grade: F<br><br><strong>Class Average Score:</strong> 74.4

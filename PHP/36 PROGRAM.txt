@@ -1,0 +1,10 @@
+36)
+<?php
+// Create an array of fruits
+$fruits = array("Apple", "Banana", "Cherry", "Date");
+
+// Display the third element (index 2)
+echo "The third fruit is: " . $fruits[2];
+?>
+OUTPUT:
+The third fruit is: Cherry

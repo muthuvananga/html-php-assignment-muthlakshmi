@@ -1,0 +1,88 @@
+48)
+<?php
+// 1. Sample initial records (array of associative arrays)
+$records = [
+    ['id' => 1, 'name' => 'Alice'],
+    ['id' => 2, 'name' => 'Bob'],
+    ['id' => 3, 'name' => 'Charlie'],
+    ['id' => 4, 'name' => 'David'],
+    ['id' => 5, 'name' => 'Eve'],
+    ['id' => 6, 'name' => 'Frank'],
+    ['id' => 7, 'name' => 'Grace'],
+    ['id' => 8, 'name' => 'Hannah'],
+    ['id' => 9, 'name' => 'Ivy'],
+    ['id' => 10, 'name' => 'Jack'],
+    ['id' => 11, 'name' => 'Kate'],
+    ['id' => 12, 'name' => 'Leo'],
+];
+
+// 2. Display all records with record numbers (index + 1)
+echo "All Records with Record Numbers:\n";
+$recordNumber = 1;
+foreach ($records as $record) {
+    echo "Record #$recordNumber (ID: {$record['id']}): {$record['name']}\n";
+    $recordNumber++;
+}
+
+echo "\n";
+
+// 3. Simulate pagination - show page 2 with 5 records per page
+$page = 2;
+$recordsPerPage = 5;
+$startIndex = ($page - 1) * $recordsPerPage;
+$endIndex = $startIndex + $recordsPerPage;
+
+echo "Displaying Page $page (Records per page: $recordsPerPage):\n";
+
+$recordNumber = $startIndex + 1; // starting record number on this page
+
+for ($i = $startIndex; $i < $endIndex && $i < count($records); $i++) {
+    $record = $records[$i];
+    echo "Record #$recordNumber (ID: {$record['id']}): {$record['name']}\n";
+    $recordNumber++;
+}
+
+echo "\n";
+
+// 4. Add a new record with auto-incremented ID
+$newName = "Mona";
+$newId = end($records)['id'] + 1; // get last id + 1
+
+$records[] = ['id' => $newId, 'name' => $newName];
+
+echo "After Adding New Record:\n";
+foreach ($records as $index => $record) {
+    echo "Record #" . ($index + 1) . " (ID: {$record['id']}): {$record['name']}\n";
+}
+?>
+OUTPUT:
+All Records with Record Numbers:
+Record #1 (ID: 1): Alice
+Record #2 (ID: 2): Bob
+Record #3 (ID: 3): Charlie
+Record #4 (ID: 4): David
+Record #5 (ID: 5): Eve
+Record #6 (ID: 6): Frank
+Record #7 (ID: 7): Grace
+Record #8 (ID: 8): Hannah
+Record #9 (ID: 9): Ivy
+Record #10 (ID: 10): Jack
+Record #11 (ID: 11): Kate
+Record #12 (ID: 12): Leo
+
+Displaying Page 2 (Records per page: 5):
+Record #6 (ID: 6): Frank
+Record #7 (ID: 7): Grace
+Record #8 (ID: 8): Hannah
+Record #9 (ID: 9): Ivy
+Record #10 (ID: 10): Jack
+
+After Adding New Record:
+Record #1 (ID: 1): Alice
+Record #2 (ID: 2): Bob
+Record #3 (ID: 3): Charlie
+Record #4 (ID: 4): David
+Record #5 (ID: 5): Eve
+Record #6 (ID: 6): Frank
+Record #7 (ID: 7): Grace
+Record #8 (ID: 8): Hannah

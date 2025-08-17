@@ -1,0 +1,17 @@
+46)
+<?php
+$array = ['apple', 'banana', 'cherry', 'date', 'fig'];
+
+$searchValue = 'cherry';
+
+$index = array_search($searchValue, $array);
+
+if ($index !== false) {
+    echo "The value '$searchValue' is found at index: $index";
+} else {
+    echo "The value '$searchValue' was not found in the array.";
+}
+?>
+OUTPUT:
+The value 'cherry' is found at index: 2
+

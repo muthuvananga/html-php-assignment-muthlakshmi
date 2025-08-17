@@ -1,0 +1,25 @@
+40)
+<?php
+$input = "Hello! Welcome to PHP #2025. Let's clean this string: @$%&*()";
+
+// Convert the string into an array of characters
+$chars = str_split($input);
+
+// Array to hold allowed characters
+$allowedChars = [];
+
+// Loop through each character and check if it's allowed
+foreach ($chars as $char) {
+    // Check if character is a-z, A-Z, 0-9, or space
+    if (preg_match('/[a-zA-Z0-9 ]/', $char)) {
+        $allowedChars[] = $char;  // Add allowed char to array
+    }
+}
+
+// Join the allowed characters back into a string
+$filteredString = implode('', $allowedChars);
+
+echo $filteredString;
+?>
+OUTPUT:
+Hello Welcome to PHP 2025 Lets clean this string 

@@ -1,0 +1,91 @@
+56)
+<?php
+$array = ["banana", "Apple", "cherry", "apple", "Banana"];
+
+// 1. sort() - ascending, reindexes keys
+sort($array);
+print_r($array);
+
+// 2. rsort() - descending, reindexes keys
+rsort($array);
+print_r($array);
+
+// 3. asort() - ascending, maintains keys
+asort($array);
+print_r($array);
+
+// 4. arsort() - descending, maintains keys
+arsort($array);
+print_r($array);
+
+// 5. ksort() - sort by keys ascending
+$array2 = ["c" => 3, "a" => 1, "b" => 2];
+ksort($array2);
+print_r($array2);
+
+// 6. krsort() - sort by keys descending
+krsort($array2);
+print_r($array2);
+
+// 7. usort() - user-defined sort by string length ascending
+usort($array, function($a, $b) {
+    return strlen($a) <=> strlen($b);
+});
+print_r($array);
+
+// 8. uasort() - user-defined sort by string length ascending, maintain keys
+$array3 = ["x" => "banana", "y" => "Apple", "z" => "cherry"];
+uasort($array3, function($a, $b) {
+    return strlen($a) <=> strlen($b);
+});
+print_r($array3);
+
+// 9. uksort() - user-defined sort by keys length ascending
+$array4 = ["apple" => 1, "ban" => 2, "cherry" => 3];
+uksort($array4, function($a, $b) {
+    return strlen($a) <=> strlen($b);
+});
+print_r($array4);
+
+// 10. natsort() - natural order sorting
+$array5 = ["img12.png", "img10.png", "img2.png", "img1.png"];
+natsort($array5);
+print_r($array5);
+
+// 11. natcasesort() - natural order sorting, case-insensitive
+$array6 = ["img12.png", "Img10.png", "img2.png", "img1.png"];
+natcasesort($array6);
+print_r($array6);
+?>
+OUTPUT:
+Array
+(
+    [0] => Apple
+    [1] => Banana
+    [2] => apple
+    [3] => banana
+    [4] => cherry
+)
+Array
+(
+    [0] => cherry
+    [1] => banana
+    [2] => apple
+    [3] => Banana
+    [4] => Apple
+)
+Array
+(
+    [4] => Apple
+    [3] => Banana
+    [2] => apple
+    [1] => banana
+    [0] => cherry
+)
+Array
+(
+    [0] => cherry
+    [1] => banana
+    [2] => apple
+    [3] => Banana
+    [4] => Apple

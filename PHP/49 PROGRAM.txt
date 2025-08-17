@@ -1,0 +1,44 @@
+49)
+<?php
+// Sample players data: each player has stats for points, assists, rebounds
+$players = [
+    ['name' => 'Alice', 'points' => 25, 'assists' => 5, 'rebounds' => 10],
+    ['name' => 'Bob', 'points' => 18, 'assists' => 7, 'rebounds' => 8],
+    ['name' => 'Charlie', 'points' => 22, 'assists' => 10, 'rebounds' => 5],
+];
+
+// Function to calculate a performance index (example weighted formula)
+function calculatePerformanceIndex($player) {
+    return $player['points'] * 0.5 + $player['assists'] * 0.3 + $player['rebounds'] * 0.2;
+}
+
+// Calculate performance for all players and add it to their data
+foreach ($players as &$player) {
+    $player['performance_index'] = calculatePerformanceIndex($player);
+}
+unset($player); // break reference
+
+// Calculate average points
+$totalPoints = array_sum(array_column($players, 'points'));
+$averagePoints = $totalPoints / count($players);
+
+// Sort players by performance index descending (rankings)
+usort($players, function($a, $b) {
+    return $b['performance_index'] <=> $a['performance_index'];
+});
+
+// Display results
+echo "Average Points: " . number_format($averagePoints, 2) . "\n\n";
+echo "Player Rankings by Performance Index:\n";
+foreach ($players as $rank => $player) {
+    echo ($rank + 1) . ". {$player['name']} - Performance Index: " . number_format($player['performance_index'], 2) . "\n";
+}
+?>
+OUTPUT:
+Average Points: 21.67
+
+Player Rankings by Performance Index:
+1. Alice - Performance Index: 16.00
+2. Charlie - Performance Index: 15.00
+3. Bob - Performance Index: 12.70
+

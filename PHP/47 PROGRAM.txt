@@ -1,0 +1,24 @@
+47)
+<?php
+$x = array(1, 2, 3, 4, 5);
+
+// Find the index of the element with value 3
+$index = array_search(3, $x);
+
+if ($index !== false) {
+    unset($x[$index]);  // Delete the element
+}
+
+// Optionally reindex the array to have sequential keys
+$x = array_values($x);
+
+// Print the array elements
+print_r($x);
+?>
+OUTPUT:Array
+(
+    [0] => 1
+    [1] => 2
+    [2] => 4
+    [3] => 5
+)

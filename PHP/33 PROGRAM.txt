@@ -1,0 +1,16 @@
+33)
+<?php
+// Create a 3x3 matrix
+$matrix = array(
+    array(1, 2, 3),    // Row 0
+    array(4, 5, 6),    // Row 1 (Second row)
+    array(7, 8, 9)     // Row 2
+);
+
+// Access the value in the second row (index 1), third column (index 2)
+$value = $matrix[1][2];
+
+echo "The value in the second row and third column is: $value";
+?>
+OUTPUT:
+The value in the second row and third column is: 6

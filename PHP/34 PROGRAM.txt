@@ -1,0 +1,11 @@
+34)
+<?php
+$text = "I like apple. Apple pie is my favorite. Apples are sweet.";
+
+// Replace "apple" (case-insensitive, exact word)
+$updatedText = preg_replace('/\bapple\b/i', 'orange', $text);
+
+echo $updatedText;
+?>
+OUTPUT:
+I like orange. orange pie is my favorite. Apples are sweet.

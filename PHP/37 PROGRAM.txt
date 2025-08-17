@@ -1,0 +1,30 @@
+37)
+PUSH:
+<?php
+$stack = array("apple", "banana");
+array_push($stack, "cherry", "date");
+print_r($stack);
+?>
+OUTPUT:
+Array
+(
+    [0] => apple
+    [1] => banana
+    [2] => cherry
+    [3] => date
+)
+
+POP:
+<?php
+$stack = array("apple", "banana", "cherry");
+$last = array_pop($stack);
+echo "Popped: $last\n";
+print_r($stack);
+?>
+OUTPUT:
+Popped: cherry
+Array
+(
+    [0] => apple
+    [1] => banana
+)

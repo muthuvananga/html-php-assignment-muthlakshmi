@@ -1,0 +1,72 @@
+52)
+<?php
+// STACK OPERATIONS (LIFO)
+echo "=== STACK OPERATIONS ===\n";
+
+$stack = [];
+
+// Push elements onto stack
+array_push($stack, "A");
+array_push($stack, "B");
+array_push($stack, "C");
+
+echo "Stack after pushes: ";
+print_r($stack);
+
+// Pop element from stack
+$popped = array_pop($stack);
+echo "Popped element: $popped\n";
+
+echo "Stack after pop: ";
+print_r($stack);
+
+echo "\n";
+
+// QUEUE OPERATIONS (FIFO)
+echo "=== QUEUE OPERATIONS ===\n";
+
+$queue = [];
+
+// Enqueue elements
+array_push($queue, "1");
+array_push($queue, "2");
+array_push($queue, "3");
+
+echo "Queue after enqueue: ";
+print_r($queue);
+
+// Dequeue element from queue
+$dequeued = array_shift($queue);
+echo "Dequeued element: $dequeued\n";
+
+echo "Queue after dequeue: ";
+print_r($queue);
+?>
+OUTPUT:
+=== STACK OPERATIONS ===
+Stack after pushes: Array
+(
+    [0] => A
+    [1] => B
+    [2] => C
+)
+Popped element: C
+Stack after pop: Array
+(
+    [0] => A
+    [1] => B
+)
+
+=== QUEUE OPERATIONS ===
+Queue after enqueue: Array
+(
+    [0] => 1
+    [1] => 2
+    [2] => 3
+)
+Dequeued element: 1
+Queue after dequeue: Array
+(
+    [0] => 2
+    [1] => 3
+)
