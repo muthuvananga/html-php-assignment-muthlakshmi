@@ -10,3 +10,23 @@ array_shift($fruits);
 echo "Array after removing first element: ";
 print_r($fruits);
 ?>
+
+
+output:
+Original Array: Array
+(
+    [0] => Apple
+    [1] => Banana
+    [2] => Mango
+    [3] => Orange
+)
+Array after removing first element: Array
+(
+    [0] => Banana
+    [1] => Mango
+    [2] => Orange
+)
+
+
+=== Code Execution Successful ===
+
